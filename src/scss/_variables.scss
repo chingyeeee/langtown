@@ -1,0 +1,40 @@
+@import "../fonts/stylesheet.css";
+
+* {
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+$primary: #e3875e;
+$secondary: #f9d7b2;
+$background: #fffef5;
+$white: #ffffff;
+$black: #1a1a1a;
+$light-gray: #d4d4d4;
+$yellow: #f8eaa2;
+$yelloworange: #fcd891;
+$orange: #ffc187;
+$gray: #535353;
+$rowTitle: #fff0d3;
+$rowContent: #fff6e5;
+$transparent: transparent;
+
+$theme-colors: (
+  $primary: $primary,
+  $secondary: $secondary,
+  $background: $background,
+  $white: $white,
+  $black: $black,
+  $light-gray: $light-gray,
+  $yellow: $yellow,
+  $yelloworange: $yelloworange,
+  $orange: $orange,
+  $gray: $gray,
+  $transparent: $transparent,
+);
+
+$h1: 2.25rem; //36px
+$h2: 1.75rem; //28px
+$h3: 1.5rem; //24px
+$p1: 1.125rem; //18px
+$p2: 1rem; //16px
+$p3: 0.875rem; //14px

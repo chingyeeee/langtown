@@ -1,0 +1,273 @@
+img {
+  width: 100%;
+  object-fit: cover;
+  vertical-align: bottom;
+}
+
+h3 {
+  @include font($p1);
+  @include borderDecoration;
+  display: inline-block;
+}
+
+p {
+  @include font($p3);
+  line-height: 26px;
+}
+
+//introduction
+.introduction {
+  padding-top: 120px;
+}
+.scroll-down {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50px;
+    margin: auto;
+    animation: scrollDown infinite 1s;
+  }
+}
+
+//about
+.about {
+  background-color: map-get($theme-colors, $background);
+  padding: 20px 0;
+}
+
+.about-dog {
+  margin: auto;
+}
+.about-intro {
+  text-align: justify;
+}
+
+.about-button {
+  text-align: center;
+  .btn-more {
+    @include button($background: $primary);
+    &:hover {
+      @include hoverEffect($background: $primary);
+    }
+  }
+}
+
+//adopt-info
+.adopt-info {
+  background-color: map-get($theme-colors, $secondary);
+  padding: 20px 0;
+}
+
+//adopt-process
+.adopt-process {
+  background-color: map-get($theme-colors, $secondary);
+  padding: 20px 0;
+}
+.process {
+  padding: 40px 36px 50px;
+  box-sizing: border-box;
+  @include rounded-radius($radius: 40px);
+  .process-title {
+    @include font($p2);
+  }
+  .process-content {
+    @include font($p3, $color: $gray);
+    line-height: 20px;
+  }
+  &:nth-child(1) {
+    background-color: map-get($theme-colors, $background);
+  }
+  &:nth-child(2) {
+    background-color: map-get($theme-colors, $yellow);
+  }
+  &:nth-child(3) {
+    background-color: map-get($theme-colors, $yelloworange);
+  }
+}
+.process-button {
+  text-align: center;
+  padding-top: 50px;
+}
+
+//adopt-stories
+.adopt-stories {
+  background-color: map-get($theme-colors, $background);
+  padding: 20px 0 80px;
+}
+.adopt-story {
+  margin-top: 20px;
+}
+.story-img {
+  @include rounded-radius;
+  overflow: hidden;
+}
+.story-header {
+  margin-top: 20px;
+  .story-title {
+    @include font($p3);
+  }
+  .story-date {
+    @include font($p3, $color: map-get($theme-colors, $gray));
+  }
+}
+.story-content {
+  text-align: justify;
+  @include font($p3, $color: map-get($theme-colors, $gray));
+  margin-top: 16px;
+  line-height: 20px;
+}
+.story-button {
+  margin-top: 20px;
+  text-align: center;
+  .btn-more {
+    @include button($background: $primary);
+    &:hover {
+      @include hoverEffect($background: $primary);
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .about-dog {
+    width: 50%;
+    margin-bottom: 36px;
+  }
+  .scroll-down {
+    &::after {
+      width: 15px;
+      height: 10px;
+      border-top: 10px solid map-get($theme-colors, $black);
+      border-left: 8px solid map-get($theme-colors, $transparent);
+      border-right: 8px solid map-get($theme-colors, $transparent);
+    }
+  }
+  .bg-mountain {
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .process {
+    text-align: center;
+    &:nth-child(1) {
+      margin-top: 32px;
+    }
+    &:nth-child(2) {
+      margin-top: -30px;
+    }
+    &:nth-child(3) {
+      margin-top: -30px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  h3 {
+    @include font($h3);
+  }
+  p {
+    @include font($p1);
+  }
+  .icon-langtown {
+    width: 70%;
+    margin: auto;
+  }
+  .langtown-intro {
+    width: 70%;
+    margin: auto;
+  }
+  .scroll-down {
+    &::after {
+      width: 25px;
+      height: 15px;
+      border-top: 15px solid map-get($theme-colors, $black);
+      border-left: 12px solid map-get($theme-colors, $transparent);
+      border-right: 12px solid map-get($theme-colors, $transparent);
+    }
+  }
+  .about {
+    padding: 60px 0;
+  }
+  .about-dog {
+    width: 60%;
+  }
+  .about-button {
+    text-align: right;
+  }
+  .adopt-info {
+    padding: 60px 0;
+  }
+  .adopt-process {
+    padding: 60px 0;
+  }
+  .adopt-stories {
+    padding: 60px 0;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .icon-langtown {
+    width: 40%;
+  }
+  .langtown-intro {
+    width: 100%;
+  }
+  .processes {
+    margin-top: 32px;
+    .process {
+      padding: 70px 77px 70px 70px;
+      box-sizing: border-box;
+      width: 35%;
+      flex-wrap: wrap;
+      .process-title {
+        @include font($p1);
+      }
+      .process-content {
+        @include font($p2, $color: $gray);
+        line-height: 24px;
+      }
+      &:nth-child(2) {
+        margin-left: -2.5%;
+      }
+      &:nth-child(3) {
+        padding: 70px 60px 50px 60px;
+        margin-left: -2.5%;
+      }
+    }
+  }
+  .story-button {
+    text-align: right;
+  }
+  .adopt-story {
+    margin-top: 30px;
+    .story-title {
+      @include font($p1);
+    }
+    .story-date {
+      @include font($p1, $color: map-get($theme-colors, $gray));
+    }
+  }
+  .story-content {
+    @include font($p1, $color: map-get($theme-colors, $gray));
+    margin: 30px 0;
+    line-height: 26px;
+  }
+  .story-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+@keyframes scrollDown {
+  0% {
+    top: 30px;
+  }
+  100% {
+    top: 55px;
+    opacity: 0;
+  }
+}

@@ -1,0 +1,47 @@
+.adopt-notices {
+  margin-top: 150px;
+  padding-bottom: 100px;
+  .notice-title {
+    @include font($h3, $fontWeight: 700);
+    text-align: center;
+  }
+  .notice-intro {
+    @include font($p3);
+    text-align: justify;
+    max-width: 750px;
+    margin: 40px auto;
+  }
+}
+
+.category {
+  display: block;
+  width: 80%;
+  margin: 20px auto;
+  background-color: map-get($theme-colors, $background);
+  padding: 2.5rem;
+  box-sizing: border-box;
+  @include rounded-radius(50%);
+  text-align: center;
+  .category-title {
+    @include font($p1);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .adopt-notices {
+    .notice-title {
+      @include font($h1, $fontWeight: 700);
+    }
+    .notice-intro {
+      @include font($p1);
+      margin: 60px auto;
+    }
+  }
+  .category {
+    width: 100%;
+    margin: 0px auto;
+    padding: 2.25rem;
+  }
+}
+
+@import "../modules/adoptNoticeCategory.scss";

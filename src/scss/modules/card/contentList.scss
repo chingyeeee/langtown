@@ -1,0 +1,101 @@
+.card-content {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  .content-list {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    .list-item {
+      display: flex;
+      gap: 8px;
+    }
+    .item-title {
+      @include font($p3);
+    }
+    .item-data {
+      @include font($p3, $color: $gray);
+    }
+  }
+}
+
+.profile-card-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  .content-list {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-top: 30px;
+    .list-item {
+      display: flex;
+      gap: 8px;
+    }
+    .item-title {
+      @include font($p3);
+      width: 20%;
+    }
+    .item-data {
+      @include font($p3, $color: $gray);
+    }
+  }
+  .item-button {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .card-content {
+    .content-list {
+      gap: 8px;
+    }
+  }
+  .profile-card-content {
+    .content-list {
+      gap: 8px;
+      .item-title {
+        width: 15%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .card-content {
+    .content-list {
+      gap: 12px;
+      .list-item {
+        gap: 16px;
+      }
+      .item-title {
+        @include font($p3);
+      }
+      .item-data {
+        @include font($p2, $color: $gray);
+      }
+    }
+  }
+  .profile-card-content {
+    .content-list {
+      margin-top: 0px;
+      gap: 12px;
+      .list-item {
+        gap: 16px;
+      }
+      .item-title {
+        @include font($p3);
+        width: 20%;
+      }
+      .item-data {
+        @include font($p3, $color: $gray);
+      }
+    }
+    .item-button {
+      justify-content: flex-end;
+    }
+  }
+}

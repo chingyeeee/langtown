@@ -1,0 +1,29 @@
+.reservation {
+  margin-top: 120px;
+  padding-bottom: 100px;
+  .reservation-title {
+    @include font($h3, $fontWeight: 700);
+    text-align: center;
+  }
+  .reserve-img {
+    max-width: 500px;
+    margin: 20px auto;
+  }
+  .reservation-intro {
+    @include font($p3);
+    text-align: justify;
+    max-width: 750px;
+    margin: auto;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .reservation {
+    .reservation-title {
+      @include font($h1, $fontWeight: 700);
+    }
+    .reservation-intro {
+      @include font($p1);
+    }
+  }
+}

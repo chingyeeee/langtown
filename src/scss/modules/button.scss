@@ -1,0 +1,40 @@
+.btn-component {
+  width: 100px;
+  height: 32px;
+  line-height: 32px;
+  @include button($fontSize: $p3, $background: $primary);
+  &:hover {
+    @include hoverEffect($background: $primary);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .btn-component {
+    @include button($fontSize: $p2, $background: $primary);
+    &:hover {
+      @include hoverEffect($background: $primary);
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .btn-component {
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    @include button($fontSize: $p2, $background: $primary);
+    &:hover {
+      @include hoverEffect($background: $primary);
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .btn-component {
+    text-align: center;
+    @include button($fontSize: $p2, $background: $primary);
+    &:hover {
+      @include hoverEffect($background: $primary);
+    }
+  }
+}

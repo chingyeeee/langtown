@@ -1,0 +1,78 @@
+//stories-header
+.stories-header {
+  margin-top: 84px;
+  height: 90vh;
+  background-image: url(../../images/adoptStories/bg-adoptStories.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  .adopt-intro {
+    @include font($p3, $color: $white, $fontWeight: 500);
+    line-height: 20px;
+    text-align: center;
+  }
+}
+
+.adopt-title {
+  @include font($h3, $color: $white, $fontWeight: 700);
+  padding-top: 30vh;
+}
+
+//story-detail
+.detail-story {
+  margin-top: 150px;
+  padding-bottom: 100px;
+  .detail-story-title {
+    @include font($h3);
+  }
+  .detail-story-date {
+    margin: 16px 0;
+    @include font($p3);
+  }
+  .detail-story-content {
+    margin: 16px 0;
+    @include font($p3);
+  }
+  .detail-story-image {
+    @include rounded-radius;
+    margin: 16px 0;
+  }
+}
+
+//carousels-story
+.carousels-story {
+  background-color: map-get($theme-colors, $yellow);
+  padding: 20px 0 100px;
+}
+
+@media screen and (min-width: 768px) {
+  .adopt-title {
+    @include font($h1, $color: $white, $fontWeight: 700);
+  }
+  .stories-header {
+    .adopt-intro {
+      @include font($p1, $color: $white, $fontWeight: 500);
+      line-height: 26px;
+      max-width: 500px;
+      margin: auto;
+    }
+  }
+
+  .detail-story {
+    .detail-story-title {
+      @include font($h1);
+    }
+    .detail-story-date {
+      margin: 24px 0;
+      @include font($p2);
+    }
+    .detail-story-content {
+      margin: 24px 0;
+      @include font($p2);
+    }
+    .detail-story-image {
+      margin: 8px 0;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+@import "../modules/card/thumbnailsImages.scss";
+
+.adoption-info {
+  margin-top: 150px;
+  padding-bottom: 100px;
+
+  .info-title {
+    @include font($h3);
+    text-align: center;
+  }
+  .info-intro {
+    @include font($p2);
+    margin: 16px 0;
+    text-align: center;
+  }
+}
+
+//adoption-profile
+.adoption-profile {
+  margin-top: 150px;
+  padding-bottom: 100px;
+  .profile-title {
+    @include font($h3);
+  }
+  .profile-content {
+    margin-top: 24px;
+    background-color: $background;
+    @include rounded-radius;
+    padding: 24px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .adoption-info {
+    .info-title {
+      @include font($h1);
+    }
+    .info-intro {
+      @include font($p1);
+      margin: 20px 0;
+      text-align: center;
+    }
+  }
+  .adoption-profile {
+    .profile-title {
+      @include font($h1);
+    }
+    .profile-content {
+      margin-top: 32px;
+      padding: 40px 30px;
+    }
+  }
+}

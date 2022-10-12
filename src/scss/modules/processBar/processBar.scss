@@ -1,0 +1,87 @@
+.processBar {
+  display: flex;
+  justify-content: space-around;
+}
+
+.process-phrase {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  .phrase-icon {
+    width: 50px;
+    height: 50px;
+    background-color: $primary;
+    @include rounded-radius(50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .phrase-title {
+    @include font($p3);
+  }
+}
+
+.phrase-investigation,
+.phrase-meeting {
+  position: relative;
+  &::before {
+    position: absolute;
+    content: "";
+    height: 5px;
+    background-color: $primary;
+    width: 130%;
+    top: 25px;
+    left: -90px;
+    margin: auto;
+    z-index: -1;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .processBar {
+    max-width: 80%;
+    margin: auto;
+  }
+  .phrase-investigation,
+  .phrase-meeting {
+    position: relative;
+    &::before {
+      width: 200%;
+      left: -150px;
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .phrase-investigation,
+  .phrase-meeting {
+    position: relative;
+    &::before {
+      width: 300%;
+      left: -200px;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .phrase-investigation,
+  .phrase-meeting {
+    position: relative;
+    &::before {
+      width: 350%;
+      left: -250px;
+    }
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .phrase-investigation,
+  .phrase-meeting {
+    position: relative;
+    &::before {
+      width: 400%;
+      left: -300px;
+    }
+  }
+}
