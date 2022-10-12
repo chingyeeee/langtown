@@ -40,6 +40,7 @@ function Navigation() {
               </Link>
               <div className="mx-4 btn-reserve">
                 <Button
+                  active={true}
                   className="mx-4"
                   text={"預約認養"}
                   to={"/reservation"}

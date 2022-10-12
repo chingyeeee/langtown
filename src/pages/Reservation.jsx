@@ -15,7 +15,7 @@ const Reservation = () => {
         </p>
         <AdoptProcesses />
         <div className="process-button">
-          <Button text={"預約認養"} to={"/knowledgetest"} />
+          <Button active={true} text={"預約認養"} to={"/knowledgetest"} />
         </div>
       </Container>
     </section>

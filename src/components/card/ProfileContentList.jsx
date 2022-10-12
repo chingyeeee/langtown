@@ -36,8 +36,8 @@ const ContentList = ({ item }) => {
         </li>
       </ul>
       <div className="item-button">
-        <Button text={"查看其他"} to={"/adoptioninformations"} />
-        <Button text={"預約認養"} to={"/reservation"} />
+        <Button active={true} text={"查看其他"} to={"/adoptioninformations"} />
+        <Button active={true} text={"預約認養"} to={"/reservation"} />
       </div>
     </div>
   );

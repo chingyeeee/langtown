@@ -49,7 +49,7 @@ const KnowledgeTest = () => {
                 </button>
               </div>
               <div className="btn-choices">
-                <Button text={"返回"} />
+                <Button active={true} text={"返回"} />
                 <Button text={"下一題"} />
               </div>
             </div>
