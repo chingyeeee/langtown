@@ -43,7 +43,9 @@ const Homepage = () => {
                 我們是浪浪工作坊團隊，是一群來自臺灣不同地區的大學生，因為每位團隊成員都很喜歡小動物，也十分關注臺灣流浪動物議題，因此在飛捷基金會廈的設計思考活動相識，並開始進行流浪動物的資料搜尋、實地訪查、線上訪談的事項，希望能藉由我們的力量，改善收容中心等地方，因為認養人與機構之間長期缺乏信任、理念衝突的問題，從而提升認養率，讓良好的風氣生生不息，讓每隻浪浪有安全舒適的歸屬。
               </p>
               <div className="about-button">
-                <Button active={true} text={"瞭解更多"} to={"/aboutus"} />
+                <Button active to={"/aboutus"}>
+                  瞭解更多
+                </Button>
               </div>
             </Col>
           </Row>
@@ -55,7 +57,9 @@ const Homepage = () => {
           <h3>認養流程</h3>
           <AdoptProcesses />
           <div className="process-button">
-            <Button active={true} text={" 預約認養"} to={"/reservation"} />
+            <Button active to={"/reservation"}>
+              預約認養
+            </Button>
           </div>
         </Container>
       </section>

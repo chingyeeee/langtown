@@ -19,11 +19,9 @@ const AdoptedStory = (props) => {
           </div>
           <div className="story-content">{story.content[0]} </div>
           <div className="story-button">
-            <Button
-              active={true}
-              text={"閱讀更多"}
-              to={`/adoptedstories/${story.name}`}
-            />
+            <Button active to={`/adoptedstories/${story.name}`}>
+              閱讀更多
+            </Button>
           </div>
         </div>
       </Col>
