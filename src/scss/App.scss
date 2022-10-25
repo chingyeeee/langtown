@@ -1,13 +1,6 @@
 @import "~bootstrap/scss/bootstrap";
 @import "./reset";
 @import "./variables";
-@import "./modules/navigation.scss";
-@import "./modules/footer.scss";
-@import "./pages/homepage.scss";
-@import "./pages/aboutUs.scss";
-@import "./pages/adoptionInformation.scss";
-@import "./pages/adoptedStories.scss";
-@import "./pages/reservation.scss";
+@import "./layout";
 @import "./pages/adoptNotice.scss";
 @import "./pages/knowledgeTest.scss";
-@import "./modules/carousels/carousels.scss";

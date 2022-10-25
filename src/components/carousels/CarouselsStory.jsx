@@ -1,12 +1,55 @@
-import { Container } from "react-bootstrap";
 import { useRef } from "react";
 import { useContainerDimensions } from "../../helpers/useContainerDimension";
 import CarouselsButtons from "./CarouselsButtons";
 import SingleImage from "../card/SingleImage";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import { device } from "../../helpers/breakpoints";
+import { Content } from "../../helpers/typography";
+import { colors } from "../../helpers/colors";
+
+const StroyCard = styled.div`
+  display: flex;
+  flex-shrink: 0;
+  width: 300px;
+  flex-direction: column;
+  cursor: pointer;
+  @media ${device.tablet} {
+    width: 350px;
+  }
+
+  @media ${device.tabletH} {
+    width: 380px;
+  }
+
+  &:hover {
+    p {
+      color: ${colors.primary};
+      transition: 0.2s;
+    }
+  }
+`;
+
+const StoryName = styled(Content)`
+  text-align: center;
+  margin-top: 1rem;
+`;
+
+const CarouselList = styled.div`
+  display: flex;
+  gap: 16px;
+  position: relative;
+  transition: 0.5s;
+  left: 0;
+`;
+
+const Carousel = styled.div`
+  overflow-x: hidden;
+  margin-top: 32px;
+`;
 
 const Carousels = (props) => {
-  const { header, data } = props;
+  const { data } = props;
 
   const carouselsref = useRef();
   const cardref = useRef();
@@ -21,7 +64,7 @@ const Carousels = (props) => {
     currentSlide += 1;
     carouselsref.current.style.left = `${currentSlide * (width + 16) * -1}px`;
 
-    if (currentSlide >= slides - 1) {
+    if (currentSlide >= slides) {
       currentSlide = 0;
       carouselsref.current.style.left = `${currentSlide * (width + 16) * -1}px`;
     }
@@ -32,7 +75,7 @@ const Carousels = (props) => {
     carouselsref.current.style.left = `${currentSlide * (width + 16) * -1}px`;
 
     if (currentSlide <= -1) {
-      currentSlide = slides - 2;
+      currentSlide = slides - 1;
       carouselsref.current.style.left = `${currentSlide * (width + 16) * -1}px`;
     }
   };
@@ -42,31 +85,25 @@ const Carousels = (props) => {
   };
 
   return (
-    <section className="carousels-story">
-      <Container>
-        <div className="story-header d-flex justify-content-between align-items-center">
-          <h3>{header}</h3>
-          <CarouselsButtons plusSlide={plusSlide} minusSlide={minusSlide} />
-        </div>
-        <div className="carousels">
-          <div className="carousel-list" ref={carouselsref}>
-            {data.map((item, index) => {
-              return (
-                <div
-                  className="carousel-story-card"
-                  ref={cardref}
-                  key={index}
-                  onClick={() => otherStories(item)}
-                >
-                  <SingleImage item={item} />
-                  <div className="story-card-name">{item.title}</div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </Container>
-    </section>
+    <>
+      <CarouselsButtons plusSlide={plusSlide} minusSlide={minusSlide} />
+      <Carousel>
+        <CarouselList ref={carouselsref}>
+          {data.map((item, index) => {
+            return (
+              <StroyCard
+                ref={cardref}
+                key={index}
+                onClick={() => otherStories(item)}
+              >
+                <SingleImage item={item} />
+                <StoryName>{item.title}</StoryName>
+              </StroyCard>
+            );
+          })}
+        </CarouselList>
+      </Carousel>
+    </>
   );
 };
 

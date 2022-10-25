@@ -2,6 +2,8 @@ import { Row, Col, Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import storiesArray from "../../data/storiesArray";
 import CarouselsStory from "../carousels/CarouselsStory";
+import { LastSection, PageSection, Image } from "../../helpers/layout";
+import { Content, H1, SectionH2 } from "../../helpers/typography";
 
 const AdoptedStoryDetail = () => {
   const { catName } = useParams();
@@ -13,35 +15,31 @@ const AdoptedStoryDetail = () => {
 
   return (
     <>
-      <Container>
-        <div className="detail-story">
-          <h1 className="detail-story-title text-center">{title}</h1>
-          <p className="detail-story-date text-center">
+      <PageSection className="mb-5">
+        <Container>
+          <H1 className="text-center">{title}</H1>
+          <Content className="text-center my-3">
             {date} {author} 撰寫
-          </p>
-          <p className="detail-story-content">{content[0]}</p>
-          <div className="cat-img">
-            <Row>
-              <Col xs={12} md={6}>
-                <img
-                  className="detail-story-image"
-                  src={image[1].image}
-                  alt={title}
-                />
-              </Col>
-              <Col xs={12} md={6}>
-                <img
-                  className="detail-story-image"
-                  src={image[2].image}
-                  alt={title}
-                />
-              </Col>
-            </Row>
-          </div>
-          <p className="detail-story-content">{content[1]}</p>
-        </div>
-      </Container>
-      <CarouselsStory header={"貓咪故事"} data={otherStories} />
+          </Content>
+          <Content className="detail-story-content">{content[0]}</Content>
+          <Row className="my-4">
+            <Col xs={12} md={6}>
+              <Image src={image[1].image} alt={title} />
+            </Col>
+            <Col xs={12} md={6}>
+              <Image src={image[2].image} alt={title} />
+            </Col>
+          </Row>
+          <Content>{content[1]}</Content>
+        </Container>
+      </PageSection>
+
+      <LastSection $mode="yellow">
+        <Container className="position-relative">
+          <SectionH2>貓咪故事</SectionH2>
+          <CarouselsStory data={otherStories}></CarouselsStory>
+        </Container>
+      </LastSection>
     </>
   );
 };

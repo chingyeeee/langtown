@@ -8,11 +8,11 @@ import { colors } from "../helpers/colors";
 import Button from "./Button";
 import styled from "styled-components";
 import { device } from "../helpers/breakpoints";
+import { Image } from "../helpers/layout";
 
 const NavLink = styled(Link)`
   text-decoration: none;
   color: ${colors.black};
-  display: inline-block;
   margin: 0 1.5rem;
   padding: 12px 0;
   &:hover {
@@ -37,19 +37,32 @@ const Logo = styled(Link)`
   display: flex;
   align-items: center;
   font-weight: 700;
+  font-family: "Noto Sans TC";
   &:hover {
     color: ${colors.black};
+  }
+`;
+
+const NavBar = styled(Navbar)`
+  background-color: ${colors.secondary};
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+`;
+
+const NavBarCollapse = styled(Navbar.Collapse)`
+  display: flex;
+  @media ${device.tabletH} {
+    display: initial;
   }
 `;
 
 function Navigation() {
   return (
     <>
-      <Navbar collapseOnSelect expand="lg" className="navbar" fixed="top">
+      <NavBar collapseOnSelect expand="lg" fixed="top">
         <Container>
           <Navbar.Brand>
             <Logo to="/">
-              <img className="brand-logo" src={logo} alt="Langtown" />
+              <Image src={logo} alt="Langtown" />
               <h1 className="brand-name ms-3 d-none d-lg-block">LANGTOWN</h1>
             </Logo>
           </Navbar.Brand>
@@ -57,22 +70,22 @@ function Navigation() {
             className="border-0"
             aria-controls="responsive-navbar-nav align-items-center"
           />
-          <Navbar.Collapse className="collapse-nav" id="responsive-navbar-nav">
+          <NavBarCollapse id="responsive-navbar-nav">
             <div className="footsteps d-lg-none">
-              <img src={footstep} alt="footstep" />
+              <Image src={footstep} alt="footstep" />
             </div>
             <Nav className="ms-auto text-center">
               <NavLink to="/aboutus">關於我們</NavLink>
               <NavLink to="/adoptionnotices">認養須知</NavLink>
               <NavLink to="/adoptioninformations">認養資訊</NavLink>
               <NavLink to="/adoptedstories">貓咪故事</NavLink>
-              <NavButton active to={"/reservation"}>
+              <NavButton active="true" to={"/reservation"}>
                 預約認養
               </NavButton>
             </Nav>
-          </Navbar.Collapse>
+          </NavBarCollapse>
         </Container>
-      </Navbar>
+      </NavBar>
       <Outlet />
     </>
   );
