@@ -7,6 +7,7 @@ import Correct from "../../images/knowledgeTest/correct.svg";
 import Incorrect from "../../images/knowledgeTest/incorrect.svg";
 import { Image } from "../../helpers/layout";
 import { Col, Row } from "react-bootstrap";
+import Button from "../Button";
 
 const ResultsBlock = styled.div`
   background-color: ${colors.background};
@@ -85,6 +86,11 @@ export const TestResults = (props) => {
           );
         })}
       </Results>
+      <div className="mt-5 text-center">
+        <Button active="true" to="/adoptorInvestigation">
+          進入預約
+        </Button>
+      </div>
     </ResultsBlock>
   );
 };
