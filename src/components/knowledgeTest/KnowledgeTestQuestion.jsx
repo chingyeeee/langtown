@@ -75,7 +75,10 @@ const Choice = styled.button`
 const NextStep = styled.div`
   display: flex;
   gap: 16px;
-  justify-content: flex-end;
+  justify-content: center;
+  @media ${device.tablet} {
+    justify-content: flex-end;
+  }
 `;
 
 const KnowledgeTestContent = styled.div`
