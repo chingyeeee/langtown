@@ -20,6 +20,7 @@ import AdoptedStoryDetail from "./components/story/AdoptedStoryDetail";
 import AdoptionInformationsList from "./pages/AdoptionInformationsList";
 import AdoptionProfile from "./components/AdoptionProfile";
 import KnowledgeTest from "./pages/KnowledgeTest";
+import { AdoptorInvestigation } from "./pages/AdoptorInvestigation";
 
 function App() {
   return (
@@ -57,6 +58,10 @@ function App() {
           </Route>
           <Route path="/reservation" element={<Reservation />} />
           <Route path="/knowledgetest" element={<KnowledgeTest />} />
+          <Route
+            path="/adoptorInvestigation"
+            element={<AdoptorInvestigation />}
+          />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
