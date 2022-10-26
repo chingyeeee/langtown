@@ -1,0 +1,493 @@
+const formArray = [
+  {
+    phrase: 0,
+    phraseTitle: "切結書預覽",
+    phraseSubTitle: "認養人及送養人應遵守以下約定:",
+    phraseList: [
+      "認養人應年滿 20 歲，且具備獨立之經濟能力。",
+      "無論何時都以人道方式對待認養的貓，並提供認養的貓適當之食物、乾淨之飲水、適當之運動空間、不可長期將貓關在籠中或栓綁在狹小之空間飼養，否則視為虐待動物。",
+      "當貓受傷或罹病時，認養人應即時請獸醫師給予符合醫療常規之處置及治療。平時視獸醫師建議定期為貓安排必要醫療行為，如:體內外驅蟲、注射疫苗、血液及其他健康檢查項目等。",
+      "當貓受傷或罹病時，認養人應即時請獸醫師給予符合醫療常規之處置及治療。平時視獸醫師建議定期為貓安排必要醫療行為，如:體內外驅蟲、注射疫苗、血液及其他健康檢查項目等。",
+      "認養人應妥善照管認養動物，不得令認養動物侵害他人之生命、身體、自由、財產或安寧。",
+      "認養人承諾不放養認養動物;若有需攜帶認養動物出入公共場所，必由 20 歲以上之人陪同，且應採取適當之防衛或保護措施（如提籠），始得為之。",
+      "認養人絕不棄養認養動物;若因任何原因無法繼續飼養認養動物，應立即告知送養人知悉，並與送養人配合，共同為貓找到新的認養家庭。",
+      "當貓轉讓、遺失或死亡時，本人需立即通知送養人知悉，並依法辦理。",
+      "除送養人與認養人約定之醫療費用外，送養人不得要求認養人負擔額外費用;若認養人要求送養人代為安排絕育及其他醫療行為，絕育及相關醫療費用則應由認養人自行負擔。送養人應針對收取之醫療費用提供蓋有獸醫院印章之收據。自認養日起，認養動物之一切費用應由認養人自行負擔。",
+      "認養之動物於二星期內確認是否適合飼養，如有任何問題請在此期限內與送養人聯絡處理。本人亦願意接受送養人日後之追蹤（以社交軟體聯繫及分享貓照片）。",
+      "本人遵守動物保護法及有關單位對家畜衛生管理之相關規定。",
+      "認養人如有違反以上認養規定者，送養人有權收回該動物。若認養人不當飼養或虐待動物，以致送養人需帶回該動物至獸醫院執行必要治療，認養人需簽署「放棄認養同意書」及負擔相關醫療費用。如有訴訟問題時可以此切結書以適當的法律途徑解決。",
+      "就本協議書有關爭議，雙方同意以乙方居住地之地方法院進行法律訴訟解決之，敗訴或有過失之一方應負擔他方一切損失賠償，包括律師費及其他衍生費用。",
+      "本認養協議書乙式二份，由認養人及送養人各執乙份為憑。",
+    ],
+  },
+  {
+    phrase: 1,
+    phraseTitle: "基本資料",
+    phraseList: [
+      "接下來要進入審核階段囉～這部份預計會花5分鐘的時間，需要你留下個人基本資料，包含姓名、手機號碼、地址等，資料將會由浪浪工作坊協助彙整之後，交給合作單位統一審核！",
+      "內容絕對保密，也僅用於認養程序上的聯繫，請您放心！",
+    ],
+    content: [
+      {
+        name: "姓名",
+        type: "text",
+        placeholder: "",
+        description: null,
+        required: true,
+        limitation: "/^[\u0391-\uFFE5]+$/",
+        errorMsg: {
+          required: "此欄為必填",
+          limitation: "請輸入中文姓名",
+        },
+      },
+      {
+        name: "生日",
+        type: "date",
+        placeholder: "",
+        description: null,
+        required: true,
+        limitation: null,
+        min: "1922-01-01",
+        max: new Date().toISOString().split("T")[0],
+        errorMsg: {
+          required: "此欄為必填",
+          limitation: null,
+        },
+      },
+      {
+        name: "手機號碼",
+        type: "number",
+        placeholder: "",
+        description: null,
+        required: true,
+        limitation: "/^09[0-9]{8}$/",
+        errorMsg: {
+          required: "此欄為必填",
+          limitation: "請輸入正確的手機號碼",
+        },
+      },
+      {
+        name: "Email",
+        type: "email",
+        placeholder: "",
+        description: null,
+        required: true,
+        limitation: "/^[^s]+@[^s]+.[^s]+$/",
+        errorMsg: {
+          required: "此欄為必填",
+          limitation: "請輸入正確的email格式",
+        },
+      },
+      {
+        name: "聯絡方式",
+        type: "text",
+        placeholder: "",
+        description: "Line / Facebook（請附連結）",
+        required: true,
+        limitation: null,
+        errorMsg: {
+          required: "此欄為必填",
+          limitation: null,
+        },
+      },
+      {
+        name: "居住城市地區",
+        type: "text",
+        placeholder: "",
+        description: "貓小隊親自送貓",
+        required: true,
+        limitation: null,
+        errorMsg: {
+          required: "此欄為必填",
+          limitation: null,
+        },
+      },
+      {
+        name: "想認養的貓咪姓名",
+        type: "select",
+        description: null,
+        required: true,
+        limitation: null,
+        options: ["aiyi", "awerei", "momo", "dert"],
+        errorMsg: {
+          required: "此欄為必填",
+          limitation: null,
+        },
+      },
+    ],
+  },
+  {
+    phrase: 2,
+    phraseTitle: "經濟狀況",
+    content: [
+      {
+        name: "職業",
+        type: "text",
+        placeholder: "",
+        description: "希望瞭解大概的工作型態，推估生活作息",
+        required: true,
+        limitation: null,
+        errorMsg: {
+          required: "此欄為必填",
+          limitation: null,
+        },
+      },
+      {
+        name: "每日工作時長",
+        type: "text",
+        placeholder: "08:00 - 17:00",
+        description: "希望瞭解大概的工作時長，推估能陪伴貓咪的時間",
+        required: true,
+        limitation: null,
+        errorMsg: {
+          required: "此欄為必填",
+          limitation: null,
+        },
+      },
+      {
+        name: "月收入區間（大概區間即可，以TWD作單位）",
+        type: "select",
+        placeholder: "",
+        description:
+          "為了確保認養人有穩定經濟來源，以負擔緊急特殊情況（如就醫）",
+        required: true,
+        limitation: null,
+        options: [
+          "0 - 10,000",
+          "10,001 - 20000",
+          "20,001 - 30,000",
+          "30,001 - 40,000",
+          "40,001 - 50,000",
+          "50,001或以上",
+        ],
+        errorMsg: {
+          required: "此欄為必填",
+          limitation: null,
+        },
+      },
+    ],
+  },
+  {
+    phrase: 3,
+    phraseTitle: "居住環境",
+    content: [
+      {
+        name: "目前住處為租賃或自宅",
+        type: "radio",
+        placeholder: "",
+        description: "瞭解認養人住處是否需要經由第三方同意養貓",
+        required: true,
+        limitation: null,
+        options: ["租賃", "自宅"],
+        errorMsg: {
+          required: "此欄為必填",
+          limitation: null,
+        },
+        child: {
+          name: "房東是否同意養貓？",
+          type: "radio",
+          placeholder: "",
+          description: "瞭解認養人住處是否是否已徵詢房東的同意",
+          required: true,
+          limitation: null,
+          options: ["是", "否"],
+          errorMsg: {
+            required: "此欄為必填",
+            limitation: null,
+          },
+        },
+      },
+      {
+        name: "目前是否與他人同住？",
+        type: "radio",
+        placeholder: "",
+        description: "瞭解可能需要磨合生活習慣的對象",
+        required: true,
+        limitation: null,
+        options: ["是", "否"],
+        errorMsg: {
+          required: "此欄為必填",
+          limitation: null,
+        },
+        child: {
+          name: "同居人是否同意您養貓？",
+          type: "radio",
+          placeholder: "",
+          description: "瞭解認養人是否已經告知同居人，並建立好心理建設",
+          required: true,
+          limitation: null,
+          options: ["是", "否"],
+          errorMsg: {
+            required: "此欄為必填",
+            limitation: null,
+          },
+        },
+      },
+      {
+        name: "居住空間大約坪數為何？",
+        type: "number",
+        placeholder: "",
+        description: "瞭解大約坪數，以衡量貓咪是否能有足夠的活動空間",
+        required: true,
+        limitation: null,
+        errorMsg: {
+          required: "此欄為必填",
+          limitation: null,
+        },
+      },
+      {
+        name: "請簡述預計讓貓咪活動的空間範圍",
+        type: "text",
+        placeholder: "臥室、客廳",
+        description: "瞭解實際上能夠且願意讓貓咪活動的空間",
+        required: true,
+        limitation: null,
+        errorMsg: {
+          required: "此欄為必填",
+          limitation: null,
+        },
+      },
+    ],
+  },
+  {
+    phrase: 4,
+    phraseTitle: "飼養經驗",
+    content: [
+      {
+        name: "是否有養貓經驗？",
+        type: "radio",
+        placeholder: "",
+        description:
+          "依據養貓經驗及過去接觸與學習的累積，評估照顧新成員的上手速度",
+        required: true,
+        limitation: null,
+        options: ["是", "否"],
+        errorMsg: {
+          required: "此欄為必填",
+          limitation: null,
+        },
+      },
+      {
+        name: "家中有其他貓成員嗎？",
+        type: "radio",
+        placeholder: "",
+        description: "為了瞭解目前為止的養貓狀況與經驗",
+        required: true,
+        limitation: null,
+        options: ["是", "否"],
+        errorMsg: {
+          required: "此欄為必填",
+          limitation: null,
+        },
+        child: {
+          name: "家中貓咪當初的來源？",
+          type: "text",
+          placeholder: "",
+          description: null,
+          required: true,
+          limitation: null,
+          errorMsg: {
+            required: "此欄為必填",
+            limitation: null,
+          },
+        },
+      },
+    ],
+  },
+  {
+    phrase: 5,
+    phraseTitle: "開放式問答",
+    phraseSubTitle:
+      "這部份預計會花15分鐘的時間，了解認養人對於飼養貓咪的想法！",
+    content: [
+      {
+        name: "認養後發現貓咪的習慣和個性與想像中不一樣怎麼辦？",
+        type: "text",
+        placeholder: "",
+        description:
+          "瞭解認養人是否已經做好心理建設，一旦面對與預期不同的情況，能否尋求專業協助、詢問周遭遇過相似情況的朋友，又或是閱讀相關書籍，藉此順利度過磨合期",
+        required: true,
+        limitation: null,
+        errorMsg: {
+          required: "此欄為必填",
+          limitation: null,
+        },
+      },
+      {
+        name: "請簡述預計執行的貓咪飲食計畫",
+        type: "text",
+        placeholder: "",
+        description: "瞭解是否對貓咪飲食有足夠的認識",
+        required: true,
+        limitation: null,
+        errorMsg: {
+          required: "此欄為必填",
+          limitation: null,
+        },
+      },
+      {
+        name: "每月願意固定編列多少預算作為飼養貓咪的費用呢？",
+        type: "text",
+        placeholder: "",
+        description:
+          "能否瞭解貓咪需求，提供合適的用品（如食物、貓砂、玩具、用品）",
+        required: true,
+        limitation: null,
+        errorMsg: {
+          required: "此欄為必填",
+          limitation: null,
+        },
+      },
+      {
+        name: "若您離家數日，會如何安排照顧貓咪呢？",
+        type: "text",
+        placeholder: "",
+        description:
+          "瞭解認養人離家時，會如何安置與照顧貓咪（如旅行、回鄉、出差）",
+        required: true,
+        limitation: null,
+        errorMsg: {
+          required: "此欄為必填",
+          limitation: null,
+        },
+      },
+      {
+        name: "如果家中已經有貓，會如何介紹新舊貓認識？採用什麼方式磨合呢？",
+        type: "text",
+        placeholder: "",
+        description:
+          "若家中已有其他成員，會如何安排彼此認識與熟悉，以降低衝突發生、減少貓咪壓力",
+        required: true,
+        limitation: null,
+        errorMsg: {
+          required: "此欄為必填",
+          limitation: null,
+        },
+      },
+      {
+        name: "若認養後貓的作息和您的無法配合，會如何應對？",
+        type: "text",
+        placeholder: "",
+        description:
+          "貓咪為晨昏型動物，為了瞭解認養人如何規劃白天與貓咪互動、消耗體力",
+        required: true,
+        limitation: null,
+        errorMsg: {
+          required: "此欄為必填",
+          limitation: null,
+        },
+      },
+      {
+        name: "若貓厭惡部分照護行為，會如何應對？",
+        type: "text",
+        placeholder: "",
+        description:
+          "遇到不熟悉的情況，是否能瞭解貓咪的真正需求並耐心處理（如外出就醫、吃藥、剪紙甲、清耳朵等）",
+        required: true,
+        limitation: null,
+        errorMsg: {
+          required: "此欄為必填",
+          limitation: null,
+        },
+      },
+    ],
+  },
+  {
+    phrase: 6,
+    phraseTitle: "同意事項",
+    content: [
+      {
+        name: "我同意簽屬認養切結書以保障貓、送養方、認養方權益",
+        type: "radio",
+        placeholder: "",
+        description: null,
+        required: false,
+        limitation: null,
+        errorMsg: {
+          required: null,
+          limitation: null,
+        },
+      },
+      {
+        name: "我願意配合施作窗戶防護",
+        type: "radio",
+        placeholder: "",
+        description: null,
+        required: false,
+        limitation: null,
+        errorMsg: {
+          required: null,
+          limitation: null,
+        },
+      },
+      {
+        name: "我願意先來看貓互動乙次（中途位於新竹，疫情期間可略過）",
+        type: "radio",
+        placeholder: "",
+        description: null,
+        required: false,
+        limitation: null,
+        errorMsg: {
+          required: null,
+          limitation: null,
+        },
+      },
+      {
+        name: "我願意提供黑白身分證影本（加蓋「貓咪認養用」印章，不做他用）",
+        type: "radio",
+        placeholder: "",
+        description: null,
+        required: false,
+        limitation: null,
+        errorMsg: {
+          required: null,
+          limitation: null,
+        },
+      },
+      {
+        name: "我願意負擔貓的醫療費用（明細列於貼文中,皆附上醫院收據）",
+        type: "radio",
+        placeholder: "",
+        description: null,
+        required: false,
+        limitation: null,
+        errorMsg: {
+          required: null,
+          limitation: null,
+        },
+      },
+      {
+        name: "我願意讓中途送養方送貓到府（只於送養當天到府乙次，停留 30 分鐘以下，後續不再到府打擾）",
+        type: "radio",
+        placeholder: "",
+        description: null,
+        required: false,
+        limitation: null,
+        errorMsg: {
+          required: null,
+          limitation: null,
+        },
+      },
+      {
+        name: "我願意和中途保持聯繫、分享貓咪照片，讓中途送養方知道貓咪近況（用 Line 聯絡／Instagram、臉書曬貓）",
+        type: "radio",
+        placeholder: "",
+        description: null,
+        required: false,
+        limitation: null,
+        errorMsg: {
+          required: null,
+          limitation: null,
+        },
+      },
+    ],
+  },
+  {
+    phrase: 7,
+    phraseTitle: "預約見面時間",
+    phraseSubTitle:
+      "表單內容審核完成後，貓小隊送養人會進一步以表單中填寫的聯絡資訊向你聯繫，以確認方便前往貓小隊志工據點（新竹市區）的時間，屆時可以與貓貓互動，也和貓小隊送養人聊聊！",
+  },
+];
+
+export default formArray;
