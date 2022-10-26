@@ -66,15 +66,16 @@ export const ContentTitle = styled.h3`
   }
 `;
 
-export const Option = styled.span`
+export const ListedItem = styled.li`
   font-family: "Noto Sans TC";
   font-weight: 400;
   font-size: ${fontSize.p3};
   letter-spacing: 0.05em;
+  line-height: 20px;
   color: ${(props) => (props.clicked ? colors.primary : colors.black)};
-  margin-left: 16px;
   @media ${device.tabletH} {
     font-size: ${fontSize.p2};
+    line-height: 23px;
   }
 `;
 
@@ -83,5 +84,18 @@ export const Ahref = styled.a`
   color: ${colors.gray};
   &:hover {
     color: ${colors.primary};
+  }
+`;
+
+export const PhraseTitle = styled.span`
+  display: none;
+  @media ${device.tablet} {
+    display: inline-block;
+    font-size: ${fontSize.p2};
+    line-height: 23px;
+    font-family: "Noto Sans TC";
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: ${(props) => (props.clicked ? colors.primary : colors.black)};
   }
 `;
