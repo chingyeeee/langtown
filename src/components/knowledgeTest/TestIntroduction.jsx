@@ -35,7 +35,10 @@ const IntroBlock = styled.div`
 const NextStep = styled.div`
   display: flex;
   gap: 16px;
-  justify-content: flex-end;
+  justify-content: center;
+  @media ${device.tablet} {
+    justify-content: flex-end;
+  }
 `;
 
 export const TestIntroduction = (props) => {
