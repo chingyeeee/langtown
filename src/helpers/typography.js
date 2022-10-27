@@ -99,3 +99,11 @@ export const PhraseTitle = styled.span`
     color: ${(props) => (props.clicked ? colors.primary : colors.black)};
   }
 `;
+
+export const Description = styled.span`
+  color: ${colors.gray};
+  font-size: ${fontSize.p3};
+  @media ${device.tablet} {
+    font-size: ${fontSize.p2};
+  }
+`;
