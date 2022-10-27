@@ -74,7 +74,6 @@ export const Input = styled.input`
   padding: 8px 12px;
   font-size: ${fontSize.p3};
   box-sizing: border-box;
-  margin-bottom: 2rem;
   width: 100%;
   &:focus {
     border: 1px solid ${colors.primary};
