@@ -11,8 +11,9 @@ import Img from "../images/knowledgeTest/00.png";
 import { Affidavit } from "../components/AdoptForm/Affidavit";
 import { useState } from "react";
 import formArray from "../data/formArray";
-import { AdoptorInformation } from "../components/AdoptForm/FormIntroduction";
+import { AdoptorInformation } from "../components/AdoptForm/AdoptorInformation";
 import Done from "../images/icons/icon-done.svg";
+import { useForm } from "react-hook-form";
 
 const InvestigationBlock = styled.div`
   @media ${device.tablet} {
@@ -97,6 +98,12 @@ const AdoptForm = styled.div`
   }
 `;
 
+export const InputGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`;
+
 export const BtnWrapper = styled.div`
   display: flex;
   gap: 16px;
@@ -112,7 +119,13 @@ export const BtnWrapper = styled.div`
 
 export const AdoptorInvestigation = () => {
   const [currentPhrase, setCurrentPhrase] = useState(0);
-  const totalPhrase = formArray.length;
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ mode: "onChange" });
+  const onSubmit = (data) => console.log(data);
+  // const totalPhrase = formArray.length;
 
   const nextStep = () => {
     setCurrentPhrase(currentPhrase + 1);
@@ -150,20 +163,28 @@ export const AdoptorInvestigation = () => {
               </ImageBlock>
             </AdoptPhrases>
             <AdoptForm>
-              {currentPhrase === 0 ? (
-                <Affidavit
-                  phrase={formArray[currentPhrase]}
-                  nextStep={nextStep}
-                />
-              ) : currentPhrase === 1 ? (
-                <AdoptorInformation
-                  phrase={formArray[currentPhrase]}
-                  nextStep={nextStep}
-                  prevStep={prevStep}
-                />
-              ) : (
-                console.log(formArray)
-              )}
+              <form
+                className="h-100 d-flex flex-column"
+                onSubmit={handleSubmit(onSubmit)}
+              >
+                {currentPhrase === 0 ? (
+                  <Affidavit
+                    phrase={formArray[currentPhrase]}
+                    nextStep={nextStep}
+                  />
+                ) : currentPhrase === 1 ? (
+                  <AdoptorInformation
+                    phrase={formArray[currentPhrase]}
+                    nextStep={nextStep}
+                    prevStep={prevStep}
+                    register={register}
+                    onSubmit={onSubmit}
+                    errors={errors}
+                  />
+                ) : (
+                  console.log(formArray)
+                )}
+              </form>
             </AdoptForm>
           </InvestigationBlock>
         </Container>
