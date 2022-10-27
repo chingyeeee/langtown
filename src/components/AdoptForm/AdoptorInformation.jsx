@@ -1,10 +1,11 @@
 import Button from "../Button";
 import { useState } from "react";
-import { Content, Description } from "../../helpers/typography";
+import { Content, Description, ValidationMsg } from "../../helpers/typography";
 import { BtnWrapper, InputGroup } from "../../pages/AdoptorInvestigation";
 import styled from "styled-components";
 import { Input, Label, Select } from "../../helpers/layout";
 import { Col, Row } from "react-bootstrap";
+import { ErrorMessage } from "@hookform/error-message";
 
 const Introduction = styled.div`
   display: flex;
@@ -49,7 +50,7 @@ const BasicInformation = (props) => {
     <>
       <Row>
         {content.map((input, i) => {
-          const { name, type, description } = input;
+          const { name, type, description, required, pattern } = input;
           // console.log(pattern);
 
           return (
@@ -67,8 +68,21 @@ const BasicInformation = (props) => {
                 <InputGroup>
                   <Label htmlFor={name}>{name}</Label>
                   <Description>{description}</Description>
-                  <Input type={type} {...register(name, { required: true })} />
-                  {console.log(errors)}
+                  <Input
+                    type={type}
+                    {...register(name, {
+                      required: required,
+                      pattern: pattern,
+                    })}
+                  />
+
+                  <ErrorMessage
+                    errors={errors}
+                    name={name}
+                    render={({ message }) => (
+                      <ValidationMsg>{message}</ValidationMsg>
+                    )}
+                  />
                 </InputGroup>
               )}
             </Col>
