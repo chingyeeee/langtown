@@ -12,4 +12,5 @@ export const colors = {
   rowTitle: "#fff0d3",
   rowContent: "#fff6e5",
   transparent: "transparent",
+  warning: "#FF4D00",
 };
