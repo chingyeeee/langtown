@@ -107,3 +107,12 @@ export const Description = styled.span`
     font-size: ${fontSize.p2};
   }
 `;
+
+export const ValidationMsg = styled.p`
+  color: ${colors.warning};
+  font-size: ${fontSize.p3};
+  margin: 4px 2px;
+  @media ${device.tablet} {
+    font-size: ${fontSize.p2};
+  }
+`;
