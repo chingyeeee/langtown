@@ -11,6 +11,8 @@ import Img from "../images/knowledgeTest/00.png";
 import { Affidavit } from "../components/AdoptForm/Affidavit";
 import { useState } from "react";
 import formArray from "../data/formArray";
+import { AdoptorInformation } from "../components/AdoptForm/FormIntroduction";
+import Done from "../images/icons/icon-done.svg";
 
 const InvestigationBlock = styled.div`
   @media ${device.tablet} {
@@ -56,6 +58,7 @@ const AdoptPhrases = styled.div`
 `;
 
 const Phrase = styled.div`
+  opacity: ${(props) => (props.active ? 1 : 0.5)};
   @media ${device.tablet} {
     width: 100%;
     margin: auto;
@@ -65,12 +68,19 @@ const Phrase = styled.div`
   }
 `;
 
-const PhraseState = styled.span`
+const PhraseState = styled.div`
   width: 20px;
   height: 20px;
   display: inline-block;
-  background-color: ${colors.background};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: ${(props) =>
+    props.past ? colors.primary : colors.background};
   border-radius: 50%;
+  box-sizing: border-box;
+  border: 3px solid
+    ${(props) => (props.active ? colors.primary : colors.transparent)};
 `;
 
 const AdoptForm = styled.div`
@@ -79,16 +89,38 @@ const AdoptForm = styled.div`
   padding: 40px;
   border-radius: 0 20px 20px 0;
   width: 100%;
+  display: flex;
+  flex-direction: column;
   @media ${device.tablet} {
     width: 70%;
     padding: 40px 32px;
   }
 `;
 
+export const BtnWrapper = styled.div`
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-grow: 1;
+  a {
+    margin-top: auto;
+  }
+  @media ${device.tablet} {
+    justify-content: flex-end;
+  }
+`;
+
 export const AdoptorInvestigation = () => {
   const [currentPhrase, setCurrentPhrase] = useState(0);
   const totalPhrase = formArray.length;
-  console.log(formArray);
+
+  const nextStep = () => {
+    setCurrentPhrase(currentPhrase + 1);
+  };
+
+  const prevStep = () => {
+    setCurrentPhrase(currentPhrase - 1);
+  };
 
   return (
     <>
@@ -101,9 +133,14 @@ export const AdoptorInvestigation = () => {
               <div className="phrases">
                 {formArray.map((phrase, i) => {
                   return (
-                    <Phrase key={i}>
-                      <PhraseState></PhraseState>
-                      <PhraseTitle>{phrase.phrase}</PhraseTitle>
+                    <Phrase key={i} active={phrase.phrase === currentPhrase}>
+                      <PhraseState
+                        past={phrase.phrase < currentPhrase}
+                        active={phrase.phrase === currentPhrase}
+                      >
+                        <Image src={Done} />
+                      </PhraseState>
+                      <PhraseTitle>{phrase.phraseTitle}</PhraseTitle>
                     </Phrase>
                   );
                 })}
@@ -116,8 +153,13 @@ export const AdoptorInvestigation = () => {
               {currentPhrase === 0 ? (
                 <Affidavit
                   phrase={formArray[currentPhrase]}
-                  setCurrentPhrase={setCurrentPhrase}
-                  currentPhrase={currentPhrase}
+                  nextStep={nextStep}
+                />
+              ) : currentPhrase === 1 ? (
+                <AdoptorInformation
+                  phrase={formArray[currentPhrase]}
+                  nextStep={nextStep}
+                  prevStep={prevStep}
                 />
               ) : (
                 console.log(formArray)
