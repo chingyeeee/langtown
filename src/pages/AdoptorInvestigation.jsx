@@ -102,6 +102,7 @@ export const InputGroup = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin-bottom: 2rem;
 `;
 
 export const BtnWrapper = styled.div`
