@@ -88,7 +88,6 @@ export const Label = styled.label`
   display: block;
   color: ${colors.black};
   font-size: ${fontSize.p2};
-  margin-bottom: 8px;
   font-family: "Noto Sans TC";
   font-weight: 500;
   line-height: 23px;
@@ -97,6 +96,7 @@ export const Label = styled.label`
     font-size: ${fontSize.p1};
   } ;
 `;
+
 export const Select = styled.select`
   background: url(${IconSelect}) no-repeat right center transparent;
   border-radius: 3px;
