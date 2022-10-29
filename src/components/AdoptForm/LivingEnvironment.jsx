@@ -3,45 +3,9 @@ import { BtnWrapper } from "../../pages/AdoptorInvestigation";
 import Button from "../Button";
 import { Description, ValidationMsg } from "../../helpers/typography";
 import { InputGroup } from "../../pages/AdoptorInvestigation";
-import { Label, Input } from "../../helpers/layout";
+import { Label, Input, Radio, RadioGroup } from "../../helpers/layout";
 import { ErrorMessage } from "@hookform/error-message";
-import { colors } from "../../helpers/colors";
-import styled from "styled-components";
 import { useState } from "react";
-
-const Radio = styled.input`
-  appearance: none;
-  background-color: #fff;
-  margin: 0;
-  color: currentColor;
-  width: 1.15em;
-  height: 1.15em;
-  border: 0.15em solid ${colors.lightGray};
-  border-radius: 50%;
-  display: grid;
-  place-content: center;
-  &::before {
-    content: "";
-    width: 0.65em;
-    height: 0.65em;
-    border-radius: 50%;
-    transform: scale(0);
-    transition: 120ms transform ease-in-out;
-  }
-  &:checked::before {
-    transform: scale(1);
-    background-color: ${colors.primary};
-  }
-  &:checked {
-    border: 0.15em solid ${colors.primary};
-  }
-`;
-
-const RadioGroup = styled.div`
-  margin: 4px 0;
-  display: flex;
-  gap: 8px;
-`;
 
 export const LivingEnvironment = (props) => {
   const { phrase, nextStep, prevStep, register, errors } = props;
