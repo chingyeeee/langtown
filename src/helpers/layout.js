@@ -74,9 +74,16 @@ export const Input = styled.input`
   padding: 8px 12px;
   font-size: ${fontSize.p3};
   box-sizing: border-box;
-  width: 100%;
+  width: ${(props) => (props.radio ? "auto" : "100%")};
+  ::placeholder {
+    color: ${colors.lightGray};
+    opacity: 0.8;
+  }
   &:focus {
     border: 1px solid ${colors.primary};
+  }
+  &:checked {
+    border: 6px solid ${colors.primary};
   }
   @media ${device.tablet} {
     font-size: ${fontSize.p2};
