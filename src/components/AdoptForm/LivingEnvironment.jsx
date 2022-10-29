@@ -13,7 +13,7 @@ export const LivingEnvironment = (props) => {
   const [housevalue, setHouseValue] = useState({});
   const [liveAlone, setLiveAlone] = useState({});
 
-  function getRadioValue(e, name, i) {
+  function getRadioValue(e, name) {
     name === "目前住處為租賃或自宅" &&
       setHouseValue({ [name]: e.target.value });
 
@@ -55,7 +55,7 @@ export const LivingEnvironment = (props) => {
                               required: required,
                               pattern: pattern,
                             })}
-                            onClick={(e) => getRadioValue(e, name, i)}
+                            onClick={(e) => getRadioValue(e, name)}
                           />
 
                           <label htmlFor={name}>{option}</label>
