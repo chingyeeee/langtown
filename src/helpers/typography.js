@@ -103,16 +103,20 @@ export const PhraseTitle = styled.span`
 export const Description = styled.span`
   color: ${colors.gray};
   font-size: ${fontSize.p3};
+  line-height: 20px;
   @media ${device.tablet} {
     font-size: ${fontSize.p2};
+    line-height: 23px;
   }
 `;
 
 export const ValidationMsg = styled.p`
   color: ${colors.warning};
   font-size: ${fontSize.p3};
+  line-height: 20px;
   margin: 4px 2px;
   @media ${device.tablet} {
     font-size: ${fontSize.p2};
+    line-height: 23px;
   }
 `;
