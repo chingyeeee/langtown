@@ -50,14 +50,21 @@ const BasicInformation = (props) => {
     <>
       <Row>
         {content.map((input, i) => {
-          const { name, type, description, required, pattern } = input;
-          // console.log(pattern);
+          const {
+            name,
+            type,
+            description,
+            required,
+            pattern,
+            minLength,
+            maxLength,
+          } = input;
 
           return (
             <Col xs={12} md={6} key={i}>
               {type === "select" ? (
                 <InputGroup>
-                  <Label name={name}>{name}</Label>
+                  <Label htmlFor={name}>{name}</Label>
                   <Select name={name}>
                     {input.options.map((option, i) => {
                       return <option key={i}>{option}</option>;
@@ -70,6 +77,8 @@ const BasicInformation = (props) => {
                   <Description>{description}</Description>
                   <Input
                     type={type}
+                    min={type === "date" ? minLength.value : ""}
+                    max={type === "date" ? maxLength.value : ""}
                     {...register(name, {
                       required: required,
                       pattern: pattern,
@@ -94,7 +103,9 @@ const BasicInformation = (props) => {
         <Button active="true" onClick={() => setFormStart(false)}>
           上一步
         </Button>
-        <Button onClick={nextStep}>下一步</Button>
+        <Button active="true" onClick={nextStep}>
+          下一步
+        </Button>
       </BtnWrapper>
     </>
   );
