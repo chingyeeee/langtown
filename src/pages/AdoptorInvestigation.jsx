@@ -16,6 +16,7 @@ import Done from "../images/icons/icon-done.svg";
 import { useForm } from "react-hook-form";
 import { FinancialStatus } from "../components/AdoptForm/FinancialStatus";
 import { LivingEnvironment } from "../components/AdoptForm/LivingEnvironment";
+import { RearingExperience } from "../components/AdoptForm/RearingExperience";
 
 const InvestigationBlock = styled.div`
   @media ${device.tablet} {
@@ -195,6 +196,15 @@ export const AdoptorInvestigation = () => {
                   />
                 ) : currentPhrase === 3 ? (
                   <LivingEnvironment
+                    phrase={formArray[currentPhrase]}
+                    nextStep={nextStep}
+                    prevStep={prevStep}
+                    register={register}
+                    onSubmit={onSubmit}
+                    errors={errors}
+                  />
+                ) : currentPhrase === 4 ? (
+                  <RearingExperience
                     phrase={formArray[currentPhrase]}
                     nextStep={nextStep}
                     prevStep={prevStep}
