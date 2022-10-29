@@ -3,53 +3,75 @@ import { BtnWrapper } from "../../pages/AdoptorInvestigation";
 import Button from "../Button";
 import { Description, ValidationMsg } from "../../helpers/typography";
 import { InputGroup } from "../../pages/AdoptorInvestigation";
-import { Label, Input, Select } from "../../helpers/layout";
+import { Input, Label, Radio, RadioGroup } from "../../helpers/layout";
 import { ErrorMessage } from "@hookform/error-message";
+import { useState } from "react";
 
 export const RearingExperience = (props) => {
   const { phrase, nextStep, register, errors, prevStep } = props;
   const { content } = phrase;
+  const [anyCat, setAnyCat] = useState({});
+
+  function getRadioValue(e, name) {
+    name === "家中有其他貓成員嗎？" && setAnyCat({ [name]: e.target.value });
+  }
 
   return (
     <>
       <Row>
         {content.map((input, i) => {
-          const {
-            name,
-            type,
-            description,
-            required,
-            pattern,
-            placeholder,
-            options,
-          } = input;
+          const { name, type, description, required, pattern, options, child } =
+            input;
           return (
             <Col xs={12} key={i}>
-              {type === "select" ? (
+              <InputGroup>
+                <Label name={name}>{name}</Label>
+                <Description>{description}</Description>
+                {options.map((option, i) => {
+                  return (
+                    <RadioGroup key={i}>
+                      <Radio
+                        radio={`
+                          ${type === "radio"}
+                        `}
+                        name={name}
+                        type={type}
+                        value={option}
+                        {...register(name, {
+                          required: required,
+                          pattern: pattern,
+                        })}
+                        onClick={(e) => getRadioValue(e, name)}
+                      />
+
+                      <label htmlFor={name}>{option}</label>
+                    </RadioGroup>
+                  );
+                })}
+
+                <ErrorMessage
+                  errors={errors}
+                  name={name}
+                  render={({ message }) => (
+                    <ValidationMsg>{message}</ValidationMsg>
+                  )}
+                />
+              </InputGroup>
+              {anyCat["家中有其他貓成員嗎？"] === "是" && child !== undefined && (
                 <InputGroup>
-                  <Label htmlFor={name}>{name}</Label>
-                  <Select name={name}>
-                    {options.map((option, i) => {
-                      return <option key={i}>{option}</option>;
-                    })}
-                  </Select>
-                </InputGroup>
-              ) : (
-                <InputGroup>
-                  <Label htmlFor={name}>{name}</Label>
-                  <Description>{description}</Description>
+                  <Label name={child.name}>{child.name}</Label>
+                  <Description>{child.description}</Description>
                   <Input
-                    type={type}
-                    placeholder={placeholder}
-                    {...register(name, {
-                      required: required,
-                      pattern: pattern,
+                    name={child.name}
+                    type={child.type}
+                    {...register(child.name, {
+                      required: child.required,
+                      pattern: child.pattern,
                     })}
                   />
-
                   <ErrorMessage
                     errors={errors}
-                    name={name}
+                    name={child.name}
                     render={({ message }) => (
                       <ValidationMsg>{message}</ValidationMsg>
                     )}
