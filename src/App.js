@@ -21,50 +21,56 @@ import AdoptionInformationsList from "./pages/AdoptionInformationsList";
 import AdoptionProfile from "./components/AdoptionProfile";
 import KnowledgeTest from "./pages/KnowledgeTest";
 import { AdoptorInvestigation } from "./pages/AdoptorInvestigation";
+import ScrollTop from "./helpers/ScrollToTop";
 
 function App() {
   return (
     <div className="App">
-      <Routes>
-        <Route path="/" element={<Navigation />}>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/aboutus" element={<AboutUs />} />
-          <Route path="/adoptionnotices" element={<AdoptionNotices />}>
-            <Route index element={<AdoptNotice />} />
+      <ScrollTop>
+        <Routes>
+          <Route path="/" element={<Navigation />}>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/aboutus" element={<AboutUs />} />
+            <Route path="/adoptionnotices" element={<AdoptionNotices />}>
+              <Route index element={<AdoptNotice />} />
+              <Route
+                path="/adoptionnotices/attitude"
+                element={<AdoptNoticeAttitude />}
+              />
+              <Route
+                path="/adoptionnotices/wealth"
+                element={<AdoptNoticeWealth />}
+              />
+              <Route
+                path="/adoptionnotices/time"
+                element={<AdoptNoticeTime />}
+              />
+              <Route
+                path="/adoptionnotices/knowledge"
+                element={<AdoptNoticeKnowledge />}
+              />
+            </Route>
+            <Route path="/adoptedstories" element={<AdoptedStoriesList />}>
+              <Route index element={<AdoptedStories />} />
+              <Route path=":catName" element={<AdoptedStoryDetail />} />
+            </Route>
             <Route
-              path="/adoptionnotices/attitude"
-              element={<AdoptNoticeAttitude />}
-            />
+              path="/adoptioninformations"
+              element={<AdoptionInformationsList />}
+            >
+              <Route index element={<AdoptionInformations />} />
+              <Route path=":Id" element={<AdoptionProfile />} />
+            </Route>
+            <Route path="/reservation" element={<Reservation />} />
+            <Route path="/knowledgetest" element={<KnowledgeTest />} />
             <Route
-              path="/adoptionnotices/wealth"
-              element={<AdoptNoticeWealth />}
+              path="/adoptorInvestigation"
+              element={<AdoptorInvestigation />}
             />
-            <Route path="/adoptionnotices/time" element={<AdoptNoticeTime />} />
-            <Route
-              path="/adoptionnotices/knowledge"
-              element={<AdoptNoticeKnowledge />}
-            />
+            <Route path="*" element={<NotFound />} />
           </Route>
-          <Route path="/adoptedstories" element={<AdoptedStoriesList />}>
-            <Route index element={<AdoptedStories />} />
-            <Route path=":catName" element={<AdoptedStoryDetail />} />
-          </Route>
-          <Route
-            path="/adoptioninformations"
-            element={<AdoptionInformationsList />}
-          >
-            <Route index element={<AdoptionInformations />} />
-            <Route path=":Id" element={<AdoptionProfile />} />
-          </Route>
-          <Route path="/reservation" element={<Reservation />} />
-          <Route path="/knowledgetest" element={<KnowledgeTest />} />
-          <Route
-            path="/adoptorInvestigation"
-            element={<AdoptorInvestigation />}
-          />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
+        </Routes>
+      </ScrollTop>
       <Footer />
     </div>
   );
