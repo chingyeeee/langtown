@@ -8,12 +8,13 @@ import { Test } from "../components/knowledgeTest/Test";
 
 const KnowledgeTest = () => {
   const [testStart, setTestStart] = useState(false);
+  const url = window.location.pathname;
 
   return (
     <>
       <OnePageSection>
         <Container>
-          <ProcessBar />
+          <ProcessBar url={url} />
           <H1 className="my-5">飼養知識小遊戲</H1>
           {testStart ? (
             <Test />
