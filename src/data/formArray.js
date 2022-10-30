@@ -301,7 +301,7 @@ const formArray = [
     content: [
       {
         name: "我同意簽屬認養切結書以保障貓、送養方、認養方權益",
-        type: "radio",
+        type: "checkbox",
         placeholder: "",
         description: null,
         required: { value: false, message: null },
@@ -309,7 +309,7 @@ const formArray = [
       },
       {
         name: "我願意配合施作窗戶防護",
-        type: "radio",
+        type: "checkbox",
         placeholder: "",
         description: null,
         required: { value: false, message: null },
@@ -317,7 +317,7 @@ const formArray = [
       },
       {
         name: "我願意先來看貓互動乙次（中途位於新竹，疫情期間可略過）",
-        type: "radio",
+        type: "checkbox",
         placeholder: "",
         description: null,
         required: { value: false, message: null },
@@ -325,7 +325,7 @@ const formArray = [
       },
       {
         name: "我願意提供黑白身分證影本（加蓋「貓咪認養用」印章，不做他用）",
-        type: "radio",
+        type: "checkbox",
         placeholder: "",
         description: null,
         required: { value: false, message: null },
@@ -333,7 +333,7 @@ const formArray = [
       },
       {
         name: "我願意負擔貓的醫療費用（明細列於貼文中,皆附上醫院收據）",
-        type: "radio",
+        type: "checkbox",
         placeholder: "",
         description: null,
         required: { value: false, message: null },
@@ -341,7 +341,7 @@ const formArray = [
       },
       {
         name: "我願意讓中途送養方送貓到府（只於送養當天到府乙次，停留 30 分鐘以下，後續不再到府打擾）",
-        type: "radio",
+        type: "checkbox",
         placeholder: "",
         description: null,
         required: { value: false, message: null },
@@ -349,7 +349,7 @@ const formArray = [
       },
       {
         name: "我願意和中途保持聯繫、分享貓咪照片，讓中途送養方知道貓咪近況（用 Line 聯絡／Instagram、臉書曬貓）",
-        type: "radio",
+        type: "checkbox",
         placeholder: "",
         description: null,
         required: { value: false, message: null },

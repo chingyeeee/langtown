@@ -139,7 +139,6 @@ export const Radio = styled.input`
   appearance: none;
   background-color: #fff;
   margin: 0;
-  color: currentColor;
   width: 1.15em;
   height: 1.15em;
   border: 0.15em solid ${colors.lightGray};
@@ -167,4 +166,28 @@ export const RadioGroup = styled.div`
   margin: 4px 0;
   display: flex;
   gap: 8px;
+`;
+
+export const CheckBox = styled.input`
+  background-color: ${colors.white};
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid ${colors.lightGray};
+  box-sizing: border-box;
+  appearance: none;
+  display: grid;
+  place-content: center;
+  margin-top: 0.2rem;
+  &::before {
+    content: "";
+    width: 1em;
+    height: 1em;
+    transition: 120ms transform ease-in-out;
+  }
+  &:checked::before {
+    transform: scale(1);
+    background-color: ${colors.primary};
+    color: ${colors.white};
+    border: 0.15em solid ${colors.white};
+  }
 `;
