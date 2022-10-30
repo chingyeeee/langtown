@@ -18,6 +18,8 @@ import { FinancialStatus } from "../components/AdoptForm/FinancialStatus";
 import { LivingEnvironment } from "../components/AdoptForm/LivingEnvironment";
 import { RearingExperience } from "../components/AdoptForm/RearingExperience";
 import { OpenQuestion } from "../components/AdoptForm/OpenQuestions";
+import { Consent } from "../components/AdoptForm/Consent";
+import { FinishForm } from "../components/AdoptForm/FinishForm";
 
 const InvestigationBlock = styled.div`
   @media ${device.tablet} {
@@ -43,7 +45,7 @@ const AdoptPhrases = styled.div`
   border-radius: 20px 20px 0 0;
   .phrases {
     display: flex;
-    width: 60%;
+    width: 75%;
     margin: auto;
     justify-content: space-around;
     @media ${device.tablet} {
@@ -123,14 +125,12 @@ export const BtnWrapper = styled.div`
 `;
 
 export const AdoptorInvestigation = () => {
+  const totalPhrase = formArray.length;
   const [currentPhrase, setCurrentPhrase] = useState(0);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({ mode: "onChange" });
+  const { register, handleSubmit, formState } = useForm();
+  const { errors, isDirty, isValid } = formState;
+
   const onSubmit = (data) => console.log(data);
-  // const totalPhrase = formArray.length;
 
   const nextStep = () => {
     setCurrentPhrase(currentPhrase + 1);
@@ -144,7 +144,7 @@ export const AdoptorInvestigation = () => {
     <>
       <OnePageSection>
         <Container>
-          <ProcessBar />
+          <ProcessBar currentPhrase={currentPhrase} totalPhrase={totalPhrase} />
           <H1 className="my-5">初步認識調查</H1>
           <InvestigationBlock>
             <AdoptPhrases>
@@ -185,6 +185,8 @@ export const AdoptorInvestigation = () => {
                     register={register}
                     onSubmit={onSubmit}
                     errors={errors}
+                    isDirty={isDirty}
+                    isValid={isValid}
                   />
                 ) : currentPhrase === 2 ? (
                   <FinancialStatus
@@ -194,6 +196,8 @@ export const AdoptorInvestigation = () => {
                     register={register}
                     onSubmit={onSubmit}
                     errors={errors}
+                    isDirty={isDirty}
+                    isValid={isValid}
                   />
                 ) : currentPhrase === 3 ? (
                   <LivingEnvironment
@@ -203,6 +207,8 @@ export const AdoptorInvestigation = () => {
                     register={register}
                     onSubmit={onSubmit}
                     errors={errors}
+                    isDirty={isDirty}
+                    isValid={isValid}
                   />
                 ) : currentPhrase === 4 ? (
                   <RearingExperience
@@ -212,6 +218,8 @@ export const AdoptorInvestigation = () => {
                     register={register}
                     onSubmit={onSubmit}
                     errors={errors}
+                    isDirty={isDirty}
+                    isValid={isValid}
                   />
                 ) : currentPhrase === 5 ? (
                   <OpenQuestion
@@ -221,9 +229,23 @@ export const AdoptorInvestigation = () => {
                     register={register}
                     onSubmit={onSubmit}
                     errors={errors}
+                    isDirty={isDirty}
+                    isValid={isValid}
+                  />
+                ) : currentPhrase === 6 ? (
+                  <Consent
+                    phrase={formArray[currentPhrase]}
+                    nextStep={nextStep}
+                    prevStep={prevStep}
+                    register={register}
+                    onSubmit={onSubmit}
+                    isDirty={isDirty}
+                    isValid={isValid}
                   />
                 ) : (
-                  console.log(formArray)
+                  currentPhrase === totalPhrase - 1 && (
+                    <FinishForm phrase={formArray[currentPhrase]} />
+                  )
                 )}
               </form>
             </AdoptForm>
