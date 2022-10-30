@@ -7,7 +7,8 @@ import { Label, Input } from "../../helpers/layout";
 import { ErrorMessage } from "@hookform/error-message";
 
 export const OpenQuestion = (props) => {
-  const { phrase, nextStep, setFormStart, register, errors } = props;
+  const { phrase, nextStep, setFormStart, register, errors, isDirty, isValid } =
+    props;
   const { content } = phrase;
 
   return (
@@ -52,7 +53,6 @@ export const OpenQuestion = (props) => {
         })}
       </Row>
       <BtnWrapper>
-        <input type="submit" />
         <Button active="true" onClick={() => setFormStart(false)}>
           上一步
         </Button>

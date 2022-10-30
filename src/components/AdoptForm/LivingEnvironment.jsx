@@ -8,7 +8,8 @@ import { ErrorMessage } from "@hookform/error-message";
 import { useState } from "react";
 
 export const LivingEnvironment = (props) => {
-  const { phrase, nextStep, prevStep, register, errors } = props;
+  const { phrase, nextStep, prevStep, register, errors, isDirty, isValid } =
+    props;
   const { content } = phrase;
   const [housevalue, setHouseValue] = useState({});
   const [liveAlone, setLiveAlone] = useState({});
@@ -169,7 +170,6 @@ export const LivingEnvironment = (props) => {
         })}
       </Row>
       <BtnWrapper>
-        <input type="submit" />
         <Button active="true" onClick={prevStep}>
           上一步
         </Button>

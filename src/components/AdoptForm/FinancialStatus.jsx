@@ -7,7 +7,8 @@ import { Label, Input, Select } from "../../helpers/layout";
 import { ErrorMessage } from "@hookform/error-message";
 
 export const FinancialStatus = (props) => {
-  const { phrase, nextStep, register, errors, prevStep } = props;
+  const { phrase, nextStep, register, errors, prevStep, isDirty, isValid } =
+    props;
   const { content } = phrase;
 
   return (
@@ -61,7 +62,6 @@ export const FinancialStatus = (props) => {
         })}
       </Row>
       <BtnWrapper>
-        <input type="submit" />
         <Button active="true" onClick={prevStep}>
           上一步
         </Button>

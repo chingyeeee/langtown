@@ -44,7 +44,15 @@ const FormIntroduction = (props) => {
 };
 
 const BasicInformation = (props) => {
-  const { content, nextStep, setFormStart, register, errors } = props;
+  const {
+    content,
+    nextStep,
+    setFormStart,
+    register,
+    errors,
+    isDirty,
+    isValid,
+  } = props;
 
   return (
     <>
@@ -59,7 +67,6 @@ const BasicInformation = (props) => {
             minLength,
             maxLength,
           } = input;
-
           return (
             <Col xs={12} md={6} key={i}>
               {type === "select" ? (
@@ -99,7 +106,6 @@ const BasicInformation = (props) => {
         })}
       </Row>
       <BtnWrapper>
-        <input type="submit" />
         <Button active="true" onClick={() => setFormStart(false)}>
           上一步
         </Button>
@@ -112,7 +118,16 @@ const BasicInformation = (props) => {
 };
 
 export const AdoptorInformation = (props) => {
-  const { phrase, nextStep, prevStep, register, errors, onSubmit } = props;
+  const {
+    phrase,
+    nextStep,
+    prevStep,
+    register,
+    errors,
+    onSubmit,
+    isDirty,
+    isValid,
+  } = props;
   const { content, phraseList } = phrase;
   const [formStart, setFormStart] = useState(false);
 
@@ -126,6 +141,8 @@ export const AdoptorInformation = (props) => {
           register={register}
           errors={errors}
           onSubmit={onSubmit}
+          isDirty={isDirty}
+          isValid={isValid}
         />
       ) : (
         <FormIntroduction

@@ -8,7 +8,8 @@ import { ErrorMessage } from "@hookform/error-message";
 import { useState } from "react";
 
 export const RearingExperience = (props) => {
-  const { phrase, nextStep, register, errors, prevStep } = props;
+  const { phrase, nextStep, register, errors, prevStep, isDirty, isValid } =
+    props;
   const { content } = phrase;
   const [anyCat, setAnyCat] = useState({});
 
@@ -83,7 +84,6 @@ export const RearingExperience = (props) => {
         })}
       </Row>
       <BtnWrapper>
-        <input type="submit" />
         <Button active="true" onClick={prevStep}>
           上一步
         </Button>
