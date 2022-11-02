@@ -24,6 +24,7 @@ const ProfileCard = styled.div`
     }
     .item-title {
       width: 20%;
+      flex-shrink: 0;
     }
   }
   .item-button {
@@ -48,7 +49,7 @@ const ProfileCard = styled.div`
         gap: 16px;
       }
       .item-title {
-        width: 20%;
+        width: 25%;
       }
     }
     .item-button {
@@ -58,7 +59,7 @@ const ProfileCard = styled.div`
 `;
 
 const ContentList = ({ item }) => {
-  const { name, age, gender, type, ligation, medical, notes } = item;
+  const { name, age, gender, type, ligation, medical, notes, color } = item;
 
   return (
     <ProfileCard>
@@ -78,6 +79,10 @@ const ContentList = ({ item }) => {
         <li className="list-item">
           <Content className="item-title">品種</Content>
           <Content content="true">{type}</Content>
+        </li>
+        <li className="list-item">
+          <Content className="item-title">花色</Content>
+          <Content content="true">{color}</Content>
         </li>
         <li className="list-item">
           <Content className="item-title">結紮狀況</Content>
@@ -131,8 +136,8 @@ const ThumbnailsWrapper = styled.div`
 
 const ProfileContent = styled.div`
   margin-top: 24px;
-  background-color: $background;
-  @include rounded-radius;
+  background-color: ${colors.background};
+  border-radius: 8px;
   padding: 24px;
 `;
 
