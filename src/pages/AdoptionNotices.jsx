@@ -1,14 +1,16 @@
 import { Container } from "react-bootstrap";
 import { Outlet } from "react-router-dom";
+import { OnePageSection } from "../helpers/layout";
+import { H1 } from "../helpers/typography";
 
 const AdoptionNotices = () => {
   return (
-    <section className="adopt-notices">
+    <OnePageSection>
       <Container>
-        <h1 className="notice-title">認養前必備法寶</h1>
+        <H1>認養前必備法寶</H1>
         <Outlet />
       </Container>
-    </section>
+    </OnePageSection>
   );
 };
 
