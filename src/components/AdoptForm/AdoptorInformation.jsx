@@ -91,7 +91,6 @@ const BasicInformation = (props) => {
                       pattern: pattern,
                     })}
                   />
-
                   <ErrorMessage
                     errors={errors}
                     name={name}
@@ -109,7 +108,7 @@ const BasicInformation = (props) => {
         <Button active="true" onClick={() => setFormStart(false)}>
           上一步
         </Button>
-        <Button active="true" onClick={nextStep}>
+        <Button active={isDirty && isValid ? "true" : ""} onClick={nextStep}>
           下一步
         </Button>
       </BtnWrapper>

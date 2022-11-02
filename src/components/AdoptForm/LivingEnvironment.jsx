@@ -173,7 +173,7 @@ export const LivingEnvironment = (props) => {
         <Button active="true" onClick={prevStep}>
           上一步
         </Button>
-        <Button active="true" onClick={nextStep}>
+        <Button active={isDirty && isValid ? "true" : ""} onClick={nextStep}>
           下一步
         </Button>
       </BtnWrapper>

@@ -20,6 +20,7 @@ import { RearingExperience } from "../components/AdoptForm/RearingExperience";
 import { OpenQuestion } from "../components/AdoptForm/OpenQuestions";
 import { Consent } from "../components/AdoptForm/Consent";
 import { FinishForm } from "../components/AdoptForm/FinishForm";
+import emailjs from "@emailjs/browser";
 
 const InvestigationBlock = styled.div`
   @media ${device.tablet} {
@@ -127,10 +128,48 @@ export const BtnWrapper = styled.div`
 export const AdoptorInvestigation = () => {
   const totalPhrase = formArray.length;
   const [currentPhrase, setCurrentPhrase] = useState(0);
-  const { register, handleSubmit, formState } = useForm();
+  const { register, handleSubmit, formState, reset } = useForm({
+    mode: "onChange",
+  });
   const { errors, isDirty, isValid } = formState;
 
-  const onSubmit = (data) => console.log(data);
+  const sendEmail = (formData) => {
+    setCurrentPhrase(currentPhrase + 1);
+
+    emailjs
+      .send(
+        "service_d976svk",
+        "template_f8miu87",
+        formData,
+        "FPlZdT0bHMQDsjuff"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.error(error.text);
+        }
+      );
+
+    emailjs
+      .send(
+        "service_d976svk",
+        "template_o38k4fi",
+        formData,
+        "FPlZdT0bHMQDsjuff"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.error(error.text);
+        }
+      );
+
+    reset();
+  };
 
   const nextStep = () => {
     setCurrentPhrase(currentPhrase + 1);
@@ -170,7 +209,7 @@ export const AdoptorInvestigation = () => {
             <AdoptForm>
               <form
                 className="h-100 d-flex flex-column"
-                onSubmit={handleSubmit(onSubmit)}
+                onSubmit={handleSubmit(sendEmail)}
               >
                 {currentPhrase === 0 ? (
                   <Affidavit
@@ -183,7 +222,6 @@ export const AdoptorInvestigation = () => {
                     nextStep={nextStep}
                     prevStep={prevStep}
                     register={register}
-                    onSubmit={onSubmit}
                     errors={errors}
                     isDirty={isDirty}
                     isValid={isValid}
@@ -194,7 +232,6 @@ export const AdoptorInvestigation = () => {
                     nextStep={nextStep}
                     prevStep={prevStep}
                     register={register}
-                    onSubmit={onSubmit}
                     errors={errors}
                     isDirty={isDirty}
                     isValid={isValid}
@@ -205,7 +242,6 @@ export const AdoptorInvestigation = () => {
                     nextStep={nextStep}
                     prevStep={prevStep}
                     register={register}
-                    onSubmit={onSubmit}
                     errors={errors}
                     isDirty={isDirty}
                     isValid={isValid}
@@ -216,7 +252,6 @@ export const AdoptorInvestigation = () => {
                     nextStep={nextStep}
                     prevStep={prevStep}
                     register={register}
-                    onSubmit={onSubmit}
                     errors={errors}
                     isDirty={isDirty}
                     isValid={isValid}
@@ -227,7 +262,6 @@ export const AdoptorInvestigation = () => {
                     nextStep={nextStep}
                     prevStep={prevStep}
                     register={register}
-                    onSubmit={onSubmit}
                     errors={errors}
                     isDirty={isDirty}
                     isValid={isValid}
@@ -238,7 +272,6 @@ export const AdoptorInvestigation = () => {
                     nextStep={nextStep}
                     prevStep={prevStep}
                     register={register}
-                    onSubmit={onSubmit}
                     isDirty={isDirty}
                     isValid={isValid}
                   />
