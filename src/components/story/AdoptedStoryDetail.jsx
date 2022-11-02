@@ -21,16 +21,22 @@ const AdoptedStoryDetail = () => {
           <Content className="text-center my-3">
             {date} {author} 撰寫
           </Content>
-          <Content className="detail-story-content">{content[0]}</Content>
+          <Content className="detail-story-content">{content[1]}</Content>
           <Row className="my-4">
             <Col xs={12} md={6}>
-              <Image src={image[1].image} alt={title} />
+              <Image
+                src={require(`../../images/adoptStories/${image[0].image}`)}
+                alt={title}
+              />
             </Col>
             <Col xs={12} md={6}>
-              <Image src={image[2].image} alt={title} />
+              <Image
+                src={require(`../../images/adoptStories/${image[1].image}`)}
+                alt={title}
+              />
             </Col>
           </Row>
-          <Content>{content[1]}</Content>
+          <Content>{content[2]}</Content>
         </Container>
       </PageSection>
 

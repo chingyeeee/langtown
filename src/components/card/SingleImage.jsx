@@ -5,7 +5,10 @@ const SingleImage = ({ item }) => {
 
   return (
     <div className="card-image">
-      <Image src={image[0].image} alt={name} />
+      <Image
+        src={require(`../../images/adoptStories/${image[0].image}`)}
+        alt={name}
+      />
     </div>
   );
 };
