@@ -47,7 +47,7 @@ const Submit = styled.button`
 `;
 
 export const Consent = (props) => {
-  const { phrase, nextStep, register, prevStep } = props;
+  const { phrase, register, prevStep } = props;
   const { content } = phrase;
 
   return (

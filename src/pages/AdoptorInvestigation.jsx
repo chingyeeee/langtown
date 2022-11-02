@@ -269,11 +269,8 @@ export const AdoptorInvestigation = () => {
                 ) : currentPhrase === 6 ? (
                   <Consent
                     phrase={formArray[currentPhrase]}
-                    nextStep={nextStep}
                     prevStep={prevStep}
                     register={register}
-                    isDirty={isDirty}
-                    isValid={isValid}
                   />
                 ) : (
                   currentPhrase === totalPhrase - 1 && (
