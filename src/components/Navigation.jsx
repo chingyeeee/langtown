@@ -9,6 +9,7 @@ import Button from "./Button";
 import styled from "styled-components";
 import { device } from "../helpers/breakpoints";
 import { Image } from "../helpers/layout";
+import { useRef } from "react";
 
 const NavLink = styled(Link)`
   text-decoration: none;
@@ -56,30 +57,51 @@ const NavBarCollapse = styled(Navbar.Collapse)`
 `;
 
 function Navigation() {
+  const navButton = useRef(null);
+  const linksContainerRef = useRef(null);
+
+  function collapseNav() {
+    navButton.current.classList.add("collapsed");
+    linksContainerRef.current.classList.remove("show");
+  }
+
   return (
     <>
       <NavBar collapseOnSelect expand="lg" fixed="top">
         <Container>
           <Navbar.Brand>
-            <Logo to="/">
+            <Logo to="/" onClick={collapseNav}>
               <Image src={logo} alt="Langtown" />
               <h1 className="brand-name ms-3 d-none d-lg-block">LANGTOWN</h1>
             </Logo>
           </Navbar.Brand>
           <Navbar.Toggle
-            className="border-0"
             aria-controls="responsive-navbar-nav align-items-center"
+            id="navbutton"
+            ref={navButton}
           />
-          <NavBarCollapse id="responsive-navbar-nav">
+          <NavBarCollapse id="responsive-navbar-nav" ref={linksContainerRef}>
             <div className="footsteps d-lg-none">
               <Image src={footstep} alt="footstep" />
             </div>
             <Nav className="ms-auto text-center">
-              <NavLink to="/aboutus">關於我們</NavLink>
-              <NavLink to="/adoptionnotices">認養須知</NavLink>
-              <NavLink to="/adoptioninformations">認養資訊</NavLink>
-              <NavLink to="/adoptedstories">貓咪故事</NavLink>
-              <NavButton active="true" to={"/reservation"}>
+              <NavLink to="/aboutus" onClick={collapseNav}>
+                關於我們
+              </NavLink>
+              <NavLink to="/adoptionnotices" onClick={collapseNav}>
+                認養須知
+              </NavLink>
+              <NavLink to="/adoptioninformations" onClick={collapseNav}>
+                認養資訊
+              </NavLink>
+              <NavLink to="/adoptedstories" onClick={collapseNav}>
+                貓咪故事
+              </NavLink>
+              <NavButton
+                active="true"
+                to={"/reservation"}
+                onClick={collapseNav}
+              >
                 預約認養
               </NavButton>
             </Nav>
