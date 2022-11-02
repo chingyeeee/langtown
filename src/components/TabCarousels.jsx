@@ -5,6 +5,23 @@ import iconMoney from "../images/icons/icon-wealth.svg";
 import iconTime from "../images/icons/icon-time.svg";
 import iconKnowledge from "../images/icons/icon-book.svg";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
+import { colors } from "../helpers/colors";
+import { Image } from "../helpers/layout";
+import { Content } from "../helpers/typography";
+
+const TabHeader = styled(Link)`
+  background-color: ${colors.background};
+  border-radius: 50%;
+  padding: 20px;
+  margin: 0 auto 50px;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-align: center;
+  display: block;
+  width: 50%;
+  text-decoration: none;
+`;
 
 //BUG
 function TabCarousel() {
@@ -22,40 +39,28 @@ function TabCarousel() {
       indicators={false}
     >
       <Carousel.Item>
-        <Link
-          to="/adoptionnotices/attitude"
-          className="tab-header text-center d-block w-50 mx-auto"
-        >
-          <img className="tab-img" src={iconAttitude} alt="attitude" />
-          <p className="tab-title">心態</p>
-        </Link>
+        <TabHeader to="/adoptionnotices/attitude">
+          <Image src={iconAttitude} alt="attitude" />
+          <Content>心態</Content>
+        </TabHeader>
       </Carousel.Item>
       <Carousel.Item>
-        <Link
-          to="/adoptionnotices/wealth"
-          className="tab-header text-center d-block w-50 mx-auto"
-        >
-          <img className="tab-img" src={iconMoney} alt="money" />
-          <p className="tab-title text-center">經濟</p>
-        </Link>
+        <TabHeader to="/adoptionnotices/wealth">
+          <Image src={iconMoney} alt="money" />
+          <Content>經濟</Content>
+        </TabHeader>
       </Carousel.Item>
       <Carousel.Item>
-        <Link
-          to="/adoptionnotices/time"
-          className="tab-header text-center d-block w-50 mx-auto"
-        >
-          <img className="tab-img" src={iconTime} alt="time" />
-          <p className="tab-title text-center">時間</p>
-        </Link>
+        <TabHeader to="/adoptionnotices/time">
+          <Image src={iconTime} alt="time" />
+          <Content>時間</Content>
+        </TabHeader>
       </Carousel.Item>
       <Carousel.Item>
-        <Link
-          to="/adoptionnotices/knowledge"
-          className="tab-header text-center d-block w-50 mx-auto"
-        >
-          <img className="tab-img" src={iconKnowledge} alt="knowledge" />
-          <p className="tab-title text-center">知識</p>
-        </Link>
+        <TabHeader to="/adoptionnotices/knowledge">
+          <Image src={iconKnowledge} alt="knowledge" />
+          <Content>知識</Content>
+        </TabHeader>
       </Carousel.Item>
     </Carousel>
   );
