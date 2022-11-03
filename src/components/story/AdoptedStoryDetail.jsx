@@ -24,16 +24,10 @@ const AdoptedStoryDetail = () => {
           <Content className="detail-story-content">{content[1]}</Content>
           <Row className="my-4">
             <Col xs={12} md={6}>
-              <Image
-                src={require(`../../images/adoptStories/${image[0].image}`)}
-                alt={title}
-              />
+              <Image src={image[0].image} alt={title} />
             </Col>
             <Col xs={12} md={6}>
-              <Image
-                src={require(`../../images/adoptStories/${image[1].image}`)}
-                alt={title}
-              />
+              <Image src={image[1].image} alt={title} />
             </Col>
           </Row>
           <Content>{content[2]}</Content>
