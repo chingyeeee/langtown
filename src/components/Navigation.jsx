@@ -46,7 +46,6 @@ const Logo = styled(Link)`
 
 const NavBar = styled(Navbar)`
   background-color: ${colors.secondary};
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
 const NavBarCollapse = styled(Navbar.Collapse)`
