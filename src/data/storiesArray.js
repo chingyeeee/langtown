@@ -4,10 +4,12 @@ const storiesArray = [
     title: "波妮塔成長紀錄",
     image: [
       {
-        image: "bonita_01.jpg",
+        image:
+          "https://drive.google.com/uc?id=167Zj7Z6CL9l9uiFsR22PMAGEr7eVeAOk",
       },
       {
-        image: "bonita_02.jpg",
+        image:
+          "https://drive.google.com/uc?id=1cdv9QUkedCMU8I29Vk_nPf0bd0Bi-WjU",
       },
     ],
     date: "07/18/2022",
@@ -23,10 +25,12 @@ const storiesArray = [
     title: "奇多成長紀錄",
     image: [
       {
-        image: "cheeto_01.jpg",
+        image:
+          "https://drive.google.com/uc?id=1GBwLXTRqnznH5InyDCWQ9BQ7_d9GImFp",
       },
       {
-        image: "cheeto_02.jpg",
+        image:
+          "https://drive.google.com/uc?id=1PyaD73t5CZ1YVXWZI1yN0fWOxhS7bADp",
       },
     ],
     date: "07/18/2022",
@@ -42,10 +46,12 @@ const storiesArray = [
     title: "烏娜成長紀錄",
     image: [
       {
-        image: "una_01.jpg",
+        image:
+          "https://drive.google.com/uc?id=1o_mOMi6sywqs6j7PqO1RkX0b0wSkYoSI",
       },
       {
-        image: "una_02.jpg",
+        image:
+          "https://drive.google.com/uc?id=1G7jyzEbDCXIUtXqx9cZ22ml5GFTUPk_9",
       },
     ],
     date: "07/18/2022",
@@ -61,10 +67,12 @@ const storiesArray = [
     title: "心心成長紀錄",
     image: [
       {
-        image: "xinxin_01.jpg",
+        image:
+          "https://drive.google.com/uc?id=1sPn3STTAGS-fQZRMpsDU0uYNaIEQkeE_",
       },
       {
-        image: "xinxin_02.jpg",
+        image:
+          "https://drive.google.com/uc?id=1mYCAxlYTqSRIuWSsxBQROZGcoS8_ZcEh",
       },
     ],
     date: "2021/11/25",
@@ -81,10 +89,12 @@ const storiesArray = [
     title: "雞排成長紀錄",
     image: [
       {
-        image: "jipai_01.jpg",
+        image:
+          "https://drive.google.com/uc?id=14kZXqKSTMxRZaQgStUiei3qCZWwg1tgQ",
       },
       {
-        image: "jipai_02.jpg",
+        image:
+          "https://drive.google.com/uc?id=1hfcrp8G2CqrCBeAnbDaZGIRW_xAB1YT1",
       },
     ],
     date: "07/18/2022",

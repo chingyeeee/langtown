@@ -50,10 +50,7 @@ const AdoptedStory = (props) => {
   return (
     <AdoptStory>
       <Col xs={12} lg={5}>
-        <Image
-          src={require(`../../images/adoptStories/${story.image[0].image}`)}
-          alt={story.title}
-        />
+        <Image src={story.image[0].image} alt={story.title} />
       </Col>
       <Col xs={12} lg={7}>
         <StoryArticle>
