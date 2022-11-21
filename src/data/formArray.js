@@ -65,7 +65,7 @@ const formArray = [
         description: null,
         required: { value: true, message: "此欄為必填" },
         pattern: {
-          value: /^[^s]+@[^s]+.[^s]+$/,
+          value: /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/,
           message: "請輸入正確的email格式",
         },
       },
