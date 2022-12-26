@@ -17,15 +17,17 @@ const ResultsBlock = styled.div`
   width: 100%;
   @media ${device.tablet} {
     padding: 40px 32px;
+    max-width: 80%;
+    margin: auto;
   }
 `;
 
 const ImageWrapper = styled.div`
-  width: 50%;
+  width: 40%;
   margin: auto;
   box-sizing: border-box;
   @media ${device.tablet} {
-    width: 30%;
+    width: 20%;
   }
 `;
 
@@ -59,8 +61,8 @@ export const TestResults = (props) => {
         {answer.map((item, i) => {
           return (
             <Row key={i}>
-              <Col xs={3}>
-                <ImageWrapper>
+              <Col xs={2}>
+                <ImageWrapper className="mt-1">
                   <Image
                     src={
                       item.answer === item.chosenAnswer ? Correct : Incorrect
@@ -68,7 +70,7 @@ export const TestResults = (props) => {
                   />
                 </ImageWrapper>
               </Col>
-              <Col xs={9}>
+              <Col xs={10}>
                 <Question>
                   <H2>
                     {item.number}. {item.question}
