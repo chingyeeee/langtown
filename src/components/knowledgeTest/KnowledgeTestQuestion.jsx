@@ -11,7 +11,7 @@ const ImageBlock = styled.div`
   width: 100%;
   padding: 10px 20px;
   @media ${device.tablet} {
-    width: 40%;
+    width: 30%;
     padding: 0px 30px;
   }
 `;
@@ -23,7 +23,7 @@ const QuestionBlock = styled.div`
   border-radius: 20px;
   width: 100%;
   @media ${device.tablet} {
-    width: 60%;
+    width: 70%;
     padding: 40px 32px;
   }
 `;
@@ -83,6 +83,8 @@ const NextStep = styled.div`
 
 const KnowledgeTestContent = styled.div`
   @media ${device.tablet} {
+    max-width: 80%;
+    margin: auto;
     display: flex;
     align-items: center;
   }
