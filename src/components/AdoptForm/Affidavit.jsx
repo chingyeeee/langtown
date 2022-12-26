@@ -27,7 +27,7 @@ export const Affidavit = (props) => {
       </List>
       <BtnWrapper>
         <Button active="true" onClick={nextStep}>
-          我了解了
+          我瞭解了
         </Button>
       </BtnWrapper>
     </>
