@@ -118,7 +118,7 @@ const Homepage = () => {
           <Content className="mt-4 text-center px-3">
             歡迎來到 Langtown 流浪動物認養平臺！
             <br />
-            我們是浪浪工作坊，團隊的每位成員都很喜歡小動物，也十分關注臺灣流浪動物議題
+            在這裡你可以找尋有緣的毛小孩，牽手成為一輩子相互陪伴的家人。
           </Content>
           <ScrollDown className="mt-4 text-center">往下瀏覽</ScrollDown>
         </Introduction>
