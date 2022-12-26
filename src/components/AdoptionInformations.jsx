@@ -16,7 +16,6 @@ const InfoCard = styled.div`
   height: 250px;
   margin: 16px 0;
   background-color: ${colors.background};
-
   @media ${device.tablet} {
     height: 280px;
   }
@@ -85,10 +84,10 @@ const AdoptionInformations = () => {
       <Container>
         <H1>開放認養資訊</H1>
         <H2 className="text-center my-3">來看看有沒有喜歡的貓咪吧！</H2>
-        <Row>
+        <Row className="justify-content-center">
           {infoArray.map((item, index) => {
             return (
-              <Col xs={12} md={6} key={index}>
+              <Col xs={12} md={5} key={index}>
                 <InfoCard>
                   <div className="carouselCard-image">
                     <SingleImage item={item} />
