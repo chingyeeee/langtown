@@ -3,7 +3,7 @@ import { BtnWrapper } from "../../pages/AdoptorInvestigation";
 import Button from "../Button";
 import { Description, ValidationMsg } from "../../helpers/typography";
 import { InputGroup } from "../../pages/AdoptorInvestigation";
-import { Label, Input } from "../../helpers/layout";
+import { Label, Input, TextArea } from "../../helpers/layout";
 import { ErrorMessage } from "@hookform/error-message";
 
 export const OpenQuestion = (props) => {
@@ -30,7 +30,9 @@ export const OpenQuestion = (props) => {
               <InputGroup>
                 <Label htmlFor={name}>{name}</Label>
                 <Description>{description}</Description>
-                <Input
+                <TextArea
+                  wrap="hard"
+                  cols={"5"}
                   type={type}
                   min={type === "date" ? minLength.value : ""}
                   max={type === "date" ? maxLength.value : ""}

@@ -90,6 +90,34 @@ export const Input = styled.input`
   } ;
 `;
 
+export const TextArea = styled.textarea`
+  border-radius: 3px;
+  border: 1px solid ${colors.lightGray};
+  color: ${colors.gray};
+  transition: 0.3s;
+  outline: none;
+  padding: 8px 12px;
+  font-size: ${fontSize.p3};
+  box-sizing: border-box;
+  width: ${(props) => (props.radio ? "auto" : "100%")};
+  overflow: auto;
+  resize: none;
+  min-height: 72px;
+  ::placeholder {
+    color: ${colors.lightGray};
+    opacity: 0.8;
+  }
+  &:focus {
+    border: 1px solid ${colors.primary};
+  }
+  &:checked {
+    border: 6px solid ${colors.primary};
+  }
+  @media ${device.tablet} {
+    font-size: ${fontSize.p2};
+  } ;
+`;
+
 export const Label = styled.label`
   display: block;
   color: ${colors.black};
