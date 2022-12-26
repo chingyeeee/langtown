@@ -151,7 +151,7 @@ const Homepage = () => {
       </LittleSection>
       <LittleSection $mode="orange">
         <Container className="position-relative">
-          <SectionH2>認養流程</SectionH2>
+          <SectionH2>認養資訊</SectionH2>
           <Carousels data={infoArray} />
         </Container>
       </LittleSection>
