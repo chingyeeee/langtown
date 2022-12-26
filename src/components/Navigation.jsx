@@ -16,6 +16,7 @@ const NavLink = styled(Link)`
   color: ${colors.black};
   margin: 0 1.5rem;
   padding: 12px 0;
+  font-weight: 500;
   &:hover {
     color: ${colors.white};
   }
@@ -25,6 +26,7 @@ const NavButton = styled(Button)`
   background: ${colors.background};
   width: auto;
   margin: 12px 0;
+  font-weight: 500;
   @media ${device.tabletH} {
     width: 120px;
     margin: 0 0 0 1.5rem;
