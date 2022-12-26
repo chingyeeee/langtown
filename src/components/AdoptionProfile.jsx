@@ -135,10 +135,11 @@ const ThumbnailsWrapper = styled.div`
 `;
 
 const ProfileContent = styled.div`
-  margin-top: 24px;
+  margin: 24px auto 0;
   background-color: ${colors.background};
   border-radius: 8px;
   padding: 24px;
+  max-width: 1000px;
 `;
 
 const AdoptionProfile = () => {
