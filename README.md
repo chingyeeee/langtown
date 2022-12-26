@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# Langtown
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src='./public/cover.jpg'>
 
-## Available Scripts
+### 功能
 
-In the project directory, you can run:
+- 首頁
 
-### `npm start`
+  1. 查看目前開放認養的貓咪資訊
+  2. 公開透明認養流程
+  3. 了解更多認養故事
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 關於我們
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  1. 了解合作組織及團體
 
-### `npm test`
+- 認養須知
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  1. 提供認養人的認養前的必備知識
 
-### `npm run build`
+- 認養資訊
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  1. 提供目前開放認養的貓咪資訊
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- 貓咪故事
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  1. 提供更多認養貓咪的故事
 
-### `npm run eject`
+- 預約認養
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  1. 飼養知識小遊戲 - 趣味問答的小考驗，可以檢視是否儲備足夠的飼養知識
+  2. 初步認識調查 - 表單填寫、問題有加註說明，貼心解開心中的疑惑
+  3. 預約見面時段 - 表單送出後會把表單寄送到認養人及合作組織 email、後續將以表單填寫的聯絡方式以便預約見面時段
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 開發工具
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- creat-react-app - 框架
+- styled-component - CSS & 動態改變樣式
+- react-hook-form - 表單處理及儲存
+- emailJS - email 寄送
+- react-router-dom - 路由處理器
+- react-icons - icon 資料庫
