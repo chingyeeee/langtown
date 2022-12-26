@@ -10,7 +10,7 @@ import { Content } from "../../helpers/typography";
 const InfoCard = styled.div`
   width: 320px;
   height: 220px;
-  padding: 1rem;
+  padding: 1.5rem;
   flex-shrink: 0;
   display: flex;
   gap: 16px;
@@ -111,7 +111,7 @@ const Carousels = (props) => {
     currentSlide += 1;
     carouselsref.current.style.left = `${currentSlide * (width + 16) * -1}px`;
 
-    if (currentSlide >= slides) {
+    if (currentSlide >= slides - 2) {
       currentSlide = 0;
       carouselsref.current.style.left = `${currentSlide * (width + 16) * -1}px`;
     }
@@ -122,7 +122,7 @@ const Carousels = (props) => {
     carouselsref.current.style.left = `${currentSlide * (width + 16) * -1}px`;
 
     if (currentSlide <= -1) {
-      currentSlide = slides - 1;
+      currentSlide = slides - 3;
       carouselsref.current.style.left = `${currentSlide * (width + 16) * -1}px`;
     }
   };
