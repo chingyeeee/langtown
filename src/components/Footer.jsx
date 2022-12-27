@@ -14,6 +14,9 @@ const FooBar = styled.footer`
   padding: 100px 100px 45px;
   text-align: center;
   position: relative;
+  @media ${device.tablet} {
+    padding: 45px 100px;
+  }
 `;
 
 const FooH1 = styled(H1)`
