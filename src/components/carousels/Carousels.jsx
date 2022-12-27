@@ -142,6 +142,16 @@ const Carousels = (props) => {
               </InfoCard>
             );
           })}
+          {data.map((item, index) => {
+            return (
+              <InfoCard ref={cardref} key={index}>
+                <ImageWrapper>
+                  <SingleImage item={item} />
+                </ImageWrapper>
+                <ContentList item={item} />
+              </InfoCard>
+            );
+          })}
         </CarouselList>
       </Carousel>
     </>
