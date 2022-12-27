@@ -47,7 +47,7 @@ const Submit = styled.button`
 `;
 
 export const Consent = (props) => {
-  const { phrase, register, prevStep } = props;
+  const { phrase, prevStep, setValue } = props;
   const { content } = phrase;
 
   return (
@@ -59,7 +59,13 @@ export const Consent = (props) => {
             <Col xs={12} key={i}>
               <InputGroup>
                 <CheckboxGroup>
-                  <CheckBox type={type} {...register(name)} />
+                  <CheckBox
+                    type={type}
+                    onClick={(e) => {
+                      setValue(name, e.target.checked ? "是" : "否");
+                    }}
+                    // {...register(name)}
+                  />
                   <Label htmlFor={name}>{name}</Label>
                 </CheckboxGroup>
               </InputGroup>
