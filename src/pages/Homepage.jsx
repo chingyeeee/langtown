@@ -14,6 +14,7 @@ import { keyframes } from "styled-components";
 import { colors } from "../helpers/colors";
 import { device } from "../helpers/breakpoints";
 import { LittleSection, LastSection, Image } from "../helpers/layout";
+import { CarouselExample } from "../components/carousels/CarouselExample";
 
 const scrollDown = keyframes`
   from{
@@ -152,7 +153,81 @@ const Homepage = () => {
       <LittleSection $mode="orange">
         <Container className="position-relative">
           <SectionH2>認養資訊</SectionH2>
-          <Carousels data={infoArray} />
+          {/* <Carousels data={infoArray} /> */}
+          <CarouselExample show={4} infiniteLoop>
+            <div>
+              <div style={{ padding: 8 }}>
+                <img
+                  src="https://picsum.photos/id/1/200/300"
+                  alt="placeholder"
+                  style={{ width: "100%" }}
+                />
+              </div>
+            </div>
+            <div>
+              <div style={{ padding: 8 }}>
+                <img
+                  src="https://picsum.photos/id/1/200/300"
+                  alt="placeholder"
+                  style={{ width: "100%" }}
+                />
+              </div>
+            </div>
+            <div>
+              <div style={{ padding: 8 }}>
+                <img
+                  src="https://picsum.photos/id/1/200/300"
+                  alt="placeholder"
+                  style={{ width: "100%" }}
+                />
+              </div>
+            </div>
+            <div>
+              <div style={{ padding: 8 }}>
+                <img
+                  src="https://picsum.photos/id/1/200/300"
+                  alt="placeholder"
+                  style={{ width: "100%" }}
+                />
+              </div>
+            </div>
+            <div>
+              <div style={{ padding: 8 }}>
+                <img
+                  src="https://picsum.photos/id/1/200/300"
+                  alt="placeholder"
+                  style={{ width: "100%" }}
+                />
+              </div>
+            </div>
+            <div>
+              <div style={{ padding: 8 }}>
+                <img
+                  src="https://picsum.photos/id/1/200/300"
+                  alt="placeholder"
+                  style={{ width: "100%" }}
+                />
+              </div>
+            </div>
+            <div>
+              <div style={{ padding: 8 }}>
+                <img
+                  src="https://picsum.photos/id/1/200/300"
+                  alt="placeholder"
+                  style={{ width: "100%" }}
+                />
+              </div>
+            </div>
+            <div>
+              <div style={{ padding: 8 }}>
+                <img
+                  src="https://picsum.photos/id/1/200/300"
+                  alt="placeholder"
+                  style={{ width: "100%" }}
+                />
+              </div>
+            </div>
+          </CarouselExample>
         </Container>
       </LittleSection>
 
