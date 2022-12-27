@@ -64,7 +64,7 @@ const Carousels = (props) => {
     currentSlide += 1;
     carouselsref.current.style.left = `${currentSlide * (width + 16) * -1}px`;
 
-    if (currentSlide >= slides - 2) {
+    if (currentSlide >= slides) {
       currentSlide = 0;
       carouselsref.current.style.left = `${currentSlide * (width + 16) * -1}px`;
     }
@@ -75,7 +75,7 @@ const Carousels = (props) => {
     carouselsref.current.style.left = `${currentSlide * (width + 16) * -1}px`;
 
     if (currentSlide <= -1) {
-      currentSlide = slides - 3;
+      currentSlide = slides - 1;
       carouselsref.current.style.left = `${currentSlide * (width + 16) * -1}px`;
     }
   };
