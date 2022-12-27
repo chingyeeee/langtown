@@ -1,9 +1,11 @@
+import { Image } from "../../helpers/layout";
+
 const SingleImage = ({ item }) => {
   const { image, name } = item;
 
   return (
     <div className="card-image">
-      <img src={image[0].image} alt={name} />
+      <Image src={image[0].image} alt={name} />
     </div>
   );
 };

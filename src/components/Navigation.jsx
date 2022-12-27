@@ -4,51 +4,111 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link, Outlet } from "react-router-dom";
+import { colors } from "../helpers/colors";
 import Button from "./Button";
+import styled from "styled-components";
+import { device } from "../helpers/breakpoints";
+import { Image } from "../helpers/layout";
+import { useRef } from "react";
+
+const NavLink = styled(Link)`
+  text-decoration: none;
+  color: ${colors.black};
+  margin: 0 1.5rem;
+  padding: 12px 0;
+  font-weight: 500;
+  &:hover {
+    color: ${colors.white};
+  }
+`;
+
+const NavButton = styled(Button)`
+  background: ${colors.background};
+  width: auto;
+  margin: 12px 0;
+  font-weight: 500;
+  @media ${device.tabletH} {
+    width: 120px;
+    margin: 0 0 0 1.5rem;
+  }
+`;
+
+const Logo = styled(Link)`
+  text-decoration: none;
+  color: ${colors.black};
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-family: "Noto Sans TC";
+  &:hover {
+    color: ${colors.black};
+  }
+`;
+
+const NavBar = styled(Navbar)`
+  background-color: ${colors.secondary};
+`;
+
+const NavBarCollapse = styled(Navbar.Collapse)`
+  display: flex;
+  @media ${device.tabletH} {
+    display: initial;
+  }
+`;
 
 function Navigation() {
+  const navButton = useRef(null);
+  const linksContainerRef = useRef(null);
+
+  function collapseNav() {
+    navButton.current.classList.add("collapsed");
+    linksContainerRef.current.classList.remove("show");
+  }
+
   return (
     <>
-      <Navbar collapseOnSelect expand="lg" className="navbar" fixed="top">
+      <NavBar collapseOnSelect expand="lg" fixed="top">
         <Container>
           <Navbar.Brand>
-            <Link className="brand d-lg-flex align-items-center" to="/">
-              <img className="brand-logo" src={logo} alt="Langtown" />
+            <Logo to="/" onClick={collapseNav}>
+              <Image src={logo} alt="Langtown" />
               <h1 className="brand-name ms-3 d-none d-lg-block">LANGTOWN</h1>
-            </Link>
+            </Logo>
           </Navbar.Brand>
           <Navbar.Toggle
-            className="border-0"
             aria-controls="responsive-navbar-nav align-items-center"
+            id="navbutton"
+            ref={navButton}
           />
-          <Navbar.Collapse className="collapse-nav" id="responsive-navbar-nav">
+          <NavBarCollapse id="responsive-navbar-nav" ref={linksContainerRef}>
             <div className="footsteps d-lg-none">
-              <img src={footstep} alt="footstep" />
+              <Image src={footstep} alt="footstep" />
             </div>
             <Nav className="ms-auto text-center">
-              <Link className="mx-4 navlink" to="/aboutus">
+              <NavLink to="/aboutus" onClick={collapseNav}>
                 關於我們
-              </Link>
-              <Link className="mx-4 navlink" to="/adoptionnotices">
+              </NavLink>
+              <NavLink to="/adoptionnotices" onClick={collapseNav}>
                 認養須知
-              </Link>
-              <Link className="mx-4 navlink" to="/adoptioninformations">
+              </NavLink>
+              <NavLink to="/adoptioninformations" onClick={collapseNav}>
                 認養資訊
-              </Link>
-              <Link className="mx-4 navlink" to="/adoptedstories">
+              </NavLink>
+              <NavLink to="/adoptedstories" onClick={collapseNav}>
                 貓咪故事
-              </Link>
-              <div className="mx-4 btn-reserve">
-                <Button
-                  className="mx-4"
-                  text={"預約認養"}
-                  to={"/reservation"}
-                />
-              </div>
+              </NavLink>
+              <NavButton
+                active="true"
+                to={"/reservation"}
+                onClick={collapseNav}
+              >
+                預約認養
+              </NavButton>
             </Nav>
-          </Navbar.Collapse>
+          </NavBarCollapse>
         </Container>
-      </Navbar>
+      </NavBar>
       <Outlet />
     </>
   );

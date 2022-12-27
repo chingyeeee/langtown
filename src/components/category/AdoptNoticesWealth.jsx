@@ -1,361 +1,451 @@
 import { Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import TabCarousel from "../TabCarousels";
+import styled from "styled-components";
+import { device } from "../../helpers/breakpoints";
+import { colors } from "../../helpers/colors";
+import { Content, H2 } from "../../helpers/typography";
+import { fontSize } from "../../helpers/fontSize";
+
+const NoticeList = styled.div`
+  margin-top: 30px;
+  @media ${device.tabletH} {
+    margin-top: 50px;
+  }
+`;
+
+const WebListCate = styled(Row)`
+  display: none;
+  @media ${device.tablet} {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin-top: 32px;
+  }
+`;
+
+const ListCate = styled(Link)`
+  padding: 1rem 0;
+  margin: 0 0.75rem;
+  text-decoration: none;
+  background-color: ${(props) =>
+    props.active ? colors.background : colors.secondary};
+  color: ${(props) => (props.active ? colors.primary : colors.black)};
+  border-radius: 30px 30px 0 0;
+  width: 100%;
+  display: block;
+  &:hover {
+    background-color: ${colors.background};
+    color: ${colors.primary};
+  }
+`;
+
+const PhoneListCate = styled.div`
+  @media ${device.tablet} {
+    display: none;
+  }
+`;
+
+const ListContent = styled.div`
+  padding: 40px 20px;
+  background-color: ${colors.background};
+  @media ${device.tablet} {
+    padding: 60px;
+  }
+`;
+
+const TableData = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
+
+const DataTitle = styled.div`
+  text-align: center;
+  background-color: ${colors.yelloworange};
+  padding: 16px 0;
+  border-radius: 8px;
+  font-family: "Noto Sans TC";
+  font-weight: 500;
+  font-size: ${fontSize.p2};
+  line-height: 23px;
+  letter-spacing: 0.05em;
+`;
+
+const RowTitle = styled.div`
+  background-color: ${colors.rowTitle};
+  height: 100%;
+  border-radius: 8px;
+  font-family: "Noto Sans TC";
+  font-weight: 500;
+  font-size: ${fontSize.p2};
+  line-height: 23px;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+`;
+
+const TitleRowCol = styled(Col)`
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+`;
+
+const Detail = styled.div`
+  height: 100%;
+  border-radius: 8px;
+  font-family: "Noto Sans TC";
+  font-weight: 500;
+  font-size: ${fontSize.p2};
+  line-height: 23px;
+  letter-spacing: 0.05em;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  line-height: 24px;
+`;
+
+const DetailTitle = styled(Detail)`
+  background-color: ${colors.rowContent};
+`;
 
 const AdoptNoticeWealth = () => {
   return (
-    <div className="notice-list">
+    <NoticeList>
       <ul>
-        <Row className="web-list-category justify-content-around text-center mt-5">
+        <WebListCate>
           <Col md={3}>
             <li>
-              <Link className="list-category" to="/adoptionnotices/attitude">
-                心態
-              </Link>
+              <ListCate to="/adoptionnotices/attitude">心態</ListCate>
             </li>
           </Col>
           <Col md={3}>
             <li>
-              <Link
-                className="list-category active-cate"
-                to="/adoptionnotices/wealth"
-              >
+              <ListCate active="true" to="/adoptionnotices/wealth">
                 經濟
-              </Link>
+              </ListCate>
             </li>
           </Col>
           <Col md={3}>
             <li>
-              <Link className="list-category" to="/adoptionnotices/time">
-                時間
-              </Link>
+              <ListCate to="/adoptionnotices/time">時間</ListCate>
             </li>
           </Col>
           <Col md={3}>
             <li>
-              <Link className="list-category" to="/adoptionnotices/knowledge">
-                知識
-              </Link>
+              <ListCate to="/adoptionnotices/knowledge">知識</ListCate>
             </li>
           </Col>
-        </Row>
-        <div className="phone-list-category">
+        </WebListCate>
+        <PhoneListCate>
           <TabCarousel />
-        </div>
+        </PhoneListCate>
       </ul>
-      <div className="list-content">
-        <h2 className="list-content-title">你也需要想想飼養寵物的花費所需</h2>
-        <p className="list-content-detail">
+      <ListContent>
+        <H2>你也需要想想飼養寵物的花費所需</H2>
+        <Content className="mt-3">
           飼養貓咪每個月的基本支出大約落在
           $1000～5000，主要可以分為幾個部分：伙食費、健康檢查費用、醫療預備金與其他支出等，近年來飼主們越來越重視貓咪的生活品質與健康保險，因此，保單額度也成為熱門的規劃項目。
-        </p>
-        <p className="list-content-detail">
+        </Content>
+        <Content className="mt-3">
           另外一方面，假如寵物不慎患病，醫療費用更是基本支出的好幾倍，所以必須確保有足夠的金錢去面對及解決飼養後遇到的醫療問題。貓咪跟人一樣會生病、會需要關懷，所以說必須有一定的經濟能力，才能隨時有一筆資金，足夠應付未來的各種緊急情況。
-        </p>
-        <div className="table-data">
-          <Row className="row-column">
+        </Content>
+        <TableData className="mt-5">
+          <Row>
             <Col xs={3}>
-              <div className="data-title">費用類型</div>
+              <DataTitle>費用類型</DataTitle>
             </Col>
             <Col xs={3}>
-              <div className="data-title">細項</div>
+              <DataTitle>細項</DataTitle>
             </Col>
             <Col xs={3}>
-              <div className="data-title">花費金額</div>
+              <DataTitle>花費金額</DataTitle>
             </Col>
             <Col xs={3}>
-              <div className="data-title">備註</div>
+              <DataTitle>備註</DataTitle>
             </Col>
           </Row>
-          <Row className="row-column">
+          <Row>
             <Col xs={3}>
-              <div className="row-title text-center">伙食費</div>
+              <RowTitle>伙食費</RowTitle>
             </Col>
-            <Col xs={9} className="title-row-column">
+            <TitleRowCol xs={9}>
               <Row>
                 <Col xs={4}>
-                  <div className="detail detail-title">乾食</div>
+                  <DetailTitle>乾食</DetailTitle>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail">$150 – 1000 / 公斤</div>
+                  <Detail>$150 – 1000 / 公斤</Detail>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail">
+                  <Detail>
                     價格依照品牌、性質（無穀、有穀）、成分（蛋白質含量）、製作方式（烘烤、冷凍乾燥）不同
-                  </div>
+                  </Detail>
                 </Col>
               </Row>
               <Row>
                 <Col xs={4}>
-                  <div className="detail detail-title">副食罐</div>
+                  <DetailTitle>副食罐</DetailTitle>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail">$20 – 50 / 罐</div>
+                  <Detail>$20 – 50 / 罐</Detail>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail">補充水分用，不可作為主食</div>
+                  <Detail>補充水分用，不可作為主食</Detail>
                 </Col>
               </Row>
               <Row>
                 <Col xs={4}>
-                  <div className="detail detail-title">主食罐</div>
+                  <DetailTitle>主食罐</DetailTitle>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail">$40 – 100 / 罐</div>
+                  <Detail>$40 – 100 / 罐</Detail>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail">
+                  <Detail>
                     依照規格（85g / 170g / 200g）和產地（臺製 / 德製 /
                     紐製）有所不同
-                  </div>
+                  </Detail>
                 </Col>
               </Row>
               <Row>
                 <Col xs={4}>
-                  <div className="detail detail-title">生食</div>
+                  <DetailTitle>生食</DetailTitle>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail">$40 – 70 / 100 公克</div>
+                  <Detail>$40 – 70 / 100 公克</Detail>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail">依照肉種和飼養方式而有不同</div>
+                  <Detail>依照肉種和飼養方式而有不同</Detail>
                 </Col>
               </Row>
-            </Col>
+            </TitleRowCol>
           </Row>
-          <Row className="row-column">
+          <Row>
             <Col xs={3}>
-              <div className="row-title text-center">伙食費</div>
+              <RowTitle>伙食費</RowTitle>
             </Col>
-            <Col xs={9} className="title-row-column">
+            <TitleRowCol xs={9}>
               <Row>
                 <Col xs={4}>
-                  <div className="detail detail-title">
-                    礦砂、豆腐砂、松木砂
-                  </div>
+                  <DetailTitle>礦砂、豆腐砂、松木砂</DetailTitle>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail">$80 – 250 / 包</div>
+                  <Detail>$80 – 250 / 包</Detail>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail">以常見的 5 – 7L 規格計</div>
+                  <Detail>以常見的 5 – 7L 規格計</Detail>
                 </Col>
               </Row>
-            </Col>
+            </TitleRowCol>
           </Row>
-          <Row className="row-column">
+          <Row>
             <Col xs={3}>
-              <div className="row-title text-center">一次性醫療費用</div>
+              <RowTitle>一次性醫療費用</RowTitle>
             </Col>
-            <Col xs={9} className="title-row-column">
+            <TitleRowCol xs={9}>
               <Row>
                 <Col xs={4}>
-                  <div className="detail detail-title">
-                    一次性醫療費用 貓愛滋、貓白血檢驗
-                  </div>
+                  <DetailTitle>一次性醫療費用 貓愛滋、貓白血檢驗</DetailTitle>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail">$600 – 1000</div>
+                  <Detail>$600 – 1000</Detail>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail"></div>
+                  <Detail></Detail>
                 </Col>
               </Row>
               <Row>
                 <Col xs={4}>
-                  <div className="detail detail-title">pro BNP 心臟快篩</div>
+                  <DetailTitle>pro BNP 心臟快篩</DetailTitle>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail">$800 – 1000</div>
+                  <Detail>$800 – 1000</Detail>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail"></div>
+                  <Detail></Detail>
                 </Col>
               </Row>
               <Row>
                 <Col xs={4}>
-                  <div className="detail detail-title">
+                  <DetailTitle>
                     貓腸炎三合一檢驗（貓瘟、貓冠狀、梨形鞭毛蟲）
-                  </div>
+                  </DetailTitle>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail">$700 – 1000</div>
+                  <Detail>$700 – 1000</Detail>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail"></div>
+                  <Detail></Detail>
                 </Col>
               </Row>
               <Row>
                 <Col xs={4}>
-                  <div className="detail detail-title">絕育</div>
+                  <DetailTitle>絕育</DetailTitle>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail">$1500 – 4000</div>
+                  <Detail>$1500 – 4000</Detail>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail">公貓母貓手術費不同</div>
+                  <Detail>公貓母貓手術費不同</Detail>
                 </Col>
               </Row>
               <Row>
                 <Col xs={4}>
-                  <div className="detail detail-title">血檢</div>
+                  <DetailTitle>血檢</DetailTitle>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail">$1500 – 3000</div>
+                  <Detail>$1500 – 3000</Detail>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail">
-                    依照檢驗項目（生化 10、15 項）不同，收費不同
-                  </div>
+                  <Detail>依照檢驗項目（生化 10、15 項）不同，收費不同</Detail>
                 </Col>
               </Row>
-            </Col>
+            </TitleRowCol>
           </Row>
-          <Row className="row-column">
+          <Row>
             <Col xs={3}>
-              <div className="row-title text-center">檢康檢查費用</div>
+              <RowTitle>檢康檢查費用</RowTitle>
             </Col>
-            <Col xs={9} className="title-row-column">
+            <TitleRowCol xs={9}>
               <Row>
                 <Col xs={4}>
-                  <div className="detail detail-title">腹腔超音波</div>
+                  <DetailTitle>腹腔超音波</DetailTitle>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail">$2000</div>
+                  <Detail>$2000</Detail>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail"></div>
+                  <Detail></Detail>
                 </Col>
               </Row>
               <Row>
                 <Col xs={4}>
-                  <div className="detail detail-title">胸腔超音波</div>
+                  <DetailTitle>胸腔超音波</DetailTitle>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail">$3000</div>
+                  <Detail>$3000</Detail>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail"></div>
+                  <Detail></Detail>
                 </Col>
               </Row>
               <Row>
                 <Col xs={4}>
-                  <div className="detail detail-title">尿檢</div>
+                  <DetailTitle>尿檢</DetailTitle>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail">$1000</div>
+                  <Detail>$1000</Detail>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail"></div>
+                  <Detail></Detail>
                 </Col>
               </Row>
-            </Col>
+            </TitleRowCol>
           </Row>
-          <Row className="row-column">
+          <Row>
             <Col xs={3}>
-              <div className="row-title text-center">固定醫療支出</div>
+              <RowTitle>固定醫療支出</RowTitle>
             </Col>
-            <Col xs={9} className="title-row-column">
+            <TitleRowCol xs={9}>
               <Row>
                 <Col xs={4}>
-                  <div className="detail detail-title">體內外驅蟲</div>
+                  <DetailTitle>體內外驅蟲</DetailTitle>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail">$200 – 400 / 次</div>
+                  <Detail>$200 – 400 / 次</Detail>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail">每月需點滴劑或服用口服藥</div>
+                  <Detail>每月需點滴劑或服用口服藥</Detail>
                 </Col>
               </Row>
               <Row>
                 <Col xs={4}>
-                  <div className="detail detail-title">
-                    三合一 / 四合一 / 五合一疫苗
-                  </div>
+                  <DetailTitle>三合一 / 四合一 / 五合一疫苗</DetailTitle>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail">$600 – 1000 / 劑</div>
+                  <Detail>$600 – 1000 / 劑</Detail>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail">依照類型區分</div>
+                  <Detail>依照類型區分</Detail>
                 </Col>
               </Row>
               <Row>
                 <Col xs={4}>
-                  <div className="detail detail-title">狂犬病疫苗</div>
+                  <DetailTitle>狂犬病疫苗</DetailTitle>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail">$350 – 1200 / 劑</div>
+                  <Detail>$350 – 1200 / 劑</Detail>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail">依照是否有佐劑區分</div>
+                  <Detail>依照是否有佐劑區分</Detail>
                 </Col>
               </Row>
-            </Col>
+            </TitleRowCol>
           </Row>
-          <Row className="row-column">
+          <Row>
             <Col xs={3}>
-              <div className="row-title text-center">其他醫療支出</div>
+              <RowTitle>其他醫療支出</RowTitle>
             </Col>
-            <Col xs={9} className="title-row-column">
+            <TitleRowCol xs={9}>
               <Row>
                 <Col xs={4}>
-                  <div className="detail detail-title">口服藥</div>
+                  <DetailTitle>口服藥</DetailTitle>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail">$400 – 800 / 週</div>
+                  <Detail>$400 – 800 / 週</Detail>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail">
-                    較常見普遍之口服藥，特殊用藥費用可能較高
-                  </div>
+                  <Detail>較常見普遍之口服藥，特殊用藥費用可能較高</Detail>
                 </Col>
               </Row>
               <Row>
                 <Col xs={4}>
-                  <div className="detail detail-title">住院</div>
+                  <DetailTitle>住院</DetailTitle>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail">$1000 – 3000 / 天</div>
+                  <Detail>$1000 – 3000 / 天</Detail>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail">
+                  <Detail>
                     依照住院之治療（一般住院、清創、輸液、灌食、氧氣房）而有所不同
-                  </div>
+                  </Detail>
                 </Col>
               </Row>
               <Row>
                 <Col xs={4}>
-                  <div className="detail detail-title">洗牙</div>
+                  <DetailTitle>洗牙</DetailTitle>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail">$2500 – 4000 / 次</div>
+                  <Detail>$2500 – 4000 / 次</Detail>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail"></div>
+                  <Detail></Detail>
                 </Col>
               </Row>
               <Row>
                 <Col xs={4}>
-                  <div className="detail detail-title">拔牙</div>
+                  <DetailTitle>拔牙</DetailTitle>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail">$200 – 500 / 顆</div>
+                  <Detail>$200 – 500 / 顆</Detail>
                 </Col>
                 <Col xs={4}>
-                  <div className="detail"></div>
+                  <Detail></Detail>
                 </Col>
               </Row>
-            </Col>
+            </TitleRowCol>
           </Row>
-        </div>
-        <p className="list-content-detail">
+        </TableData>
+        <Content className="mt-3">
           ＊
           醫療備用金建議依照動物病史評估（如：若醫生評估動物牙口不好，可能要針對牙科手術存錢，並額外購置保健食品等）也有飼主幫寵物買保險，費用為每年
           2000 – 4000 元
-        </p>
-      </div>
-    </div>
+        </Content>
+      </ListContent>
+    </NoticeList>
   );
 };
 
